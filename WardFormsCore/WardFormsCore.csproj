@@ -30,8 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,8 +51,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DataClassfication.cs" />
+    <Compile Include="Data\DataElement.cs" />
+    <Compile Include="Data\DataSetSection.cs" />
+    <Compile Include="Data\DataSetSectionElement.cs" />
+    <Compile Include="Data\DataSetTbl.cs" />
+    <Compile Include="Data\District.cs" />
+    <Compile Include="Data\ElementValue.cs" />
+    <Compile Include="Data\Facility.cs" />
+    <Compile Include="Data\FacilityContactMechanisim.cs" />
+    <Compile Include="Data\FacilityContactMechanisimPurpose.cs" />
+    <Compile Include="Data\FacilityContent.cs" />
+    <Compile Include="Data\FacilityGroup.cs" />
+    <Compile Include="Data\FacilityGroupMember.cs" />
+    <Compile Include="Data\FacilityGroupRole.cs" />
+    <Compile Include="Data\FacilityGroupType.cs" />
+    <Compile Include="Data\FacilityLocationGeoPiont.cs" />
+    <Compile Include="Data\FacilityParty.cs" />
+    <Compile Include="Data\FacilityRole.cs" />
+    <Compile Include="Data\FacilityType.cs" />
+    <Compile Include="Data\Party.cs" />
+    <Compile Include="Data\PartyAddress.cs" />
+    <Compile Include="Data\PartyGroup.cs" />
+    <Compile Include="Data\PartyQualification.cs" />
+    <Compile Include="Data\PartyQualificationType.cs" />
+    <Compile Include="Data\PartyRelationship.cs" />
+    <Compile Include="Data\PartyRelationshipType.cs" />
+    <Compile Include="Data\PartyRole.cs" />
+    <Compile Include="Data\PartySkill.cs" />
+    <Compile Include="Data\PartyType.cs" />
+    <Compile Include="Data\PersonAddress.cs" />
+    <Compile Include="Data\PersonEducation.cs" />
+    <Compile Include="Data\PersonInfo.cs" />
+    <Compile Include="Data\PersonOccupation.cs" />
+    <Compile Include="Data\PersonRole.cs" />
+    <Compile Include="Data\PersonRoleType.cs" />
+    <Compile Include="Data\Province.cs" />
+    <Compile Include="Data\PurposeType.cs" />
+    <Compile Include="Data\Refer.cs" />
+    <Compile Include="Data\RoleType.cs" />
+    <Compile Include="Data\Service.cs" />
+    <Compile Include="Data\SkillType.cs" />
+    <Compile Include="Data\sysdiagram.cs" />
+    <Compile Include="Data\WardFormsCoreDataModel.cs" />
     <Compile Include="GeneralCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
