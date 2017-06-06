@@ -96,6 +96,8 @@
     <Compile Include="Data\WardFormsCoreDataModel.cs" />
     <Compile Include="GeneralCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
