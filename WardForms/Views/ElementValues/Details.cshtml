@@ -1,0 +1,42 @@
+﻿@model WardFormsCore.Data.ElementValue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ElementValue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElement.DataElement1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElement.DataElement1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElementValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElementValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKEVServiceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKEVServiceID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DEVID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

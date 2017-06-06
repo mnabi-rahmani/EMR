@@ -10,118 +10,112 @@ using WardFormsCore.Data;
 
 namespace WardForms.Controllers
 {
-    public class DataSetsController : Controller
+    public class ElementValuesController : Controller
     {
         private WardFormsCoreDataModel db = new WardFormsCoreDataModel();
 
-        // GET: DataSets
+        // GET: ElementValues
         public ActionResult Index()
         {
-            return View(db.DataSetTbls.ToList());
+            var elementValues = db.ElementValues.Include(e => e.DataElement);
+            return View(elementValues.ToList());
         }
 
-        // GET: DataSets/Details/5
+        // GET: ElementValues/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DataSetTbl dataSetTbl = db.DataSetTbls.Find(id);
-            if (dataSetTbl == null)
+            ElementValue elementValue = db.ElementValues.Find(id);
+            if (elementValue == null)
             {
                 return HttpNotFound();
             }
-            return View(dataSetTbl);
+            return View(elementValue);
         }
 
-        // GET: DataSets/Create
+        // GET: ElementValues/Create
         public ActionResult Create()
         {
+            ViewBag.FKEVDataElementID = new SelectList(db.DataElements, "DEID", "DataElement1");
             return View();
         }
 
-        // POST: DataSets/Create
+        // POST: ElementValues/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DSId,DataSetShortName,DataSetName,DataSetNamePersian,DataSetNamePashto,DataSetFor")] DataSetTbl dataSetTbl)
+        public ActionResult Create([Bind(Include = "DEVID,DataElementValue,FKEVDataElementID,FKEVServiceID")] ElementValue elementValue)
         {
-            string sss="";
-            foreach (string s in Request.Form.Keys)
-
-
-            {
-
-                sss += s.ToString() + ":" + Request.Form[s] + " ";
-                
-
-            }
-
             if (ModelState.IsValid)
             {
-                db.DataSetTbls.Add(dataSetTbl);
+                db.ElementValues.Add(elementValue);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(dataSetTbl);
+            ViewBag.FKEVDataElementID = new SelectList(db.DataElements, "DEID", "DataElement1", elementValue.FKEVDataElementID);
+            return View(elementValue);
         }
 
-        // GET: DataSets/Edit/5
+        // GET: ElementValues/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DataSetTbl dataSetTbl = db.DataSetTbls.Find(id);
-            if (dataSetTbl == null)
+            ElementValue elementValue = db.ElementValues.Find(id);
+            if (elementValue == null)
             {
                 return HttpNotFound();
             }
-            return View(dataSetTbl);
+            ViewBag.FKEVDataElementID = new SelectList(db.DataElements, "DEID", "DataElement1", elementValue.FKEVDataElementID);
+            return View(elementValue);
         }
 
-        // POST: DataSets/Edit/5
+        // POST: ElementValues/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DSId,DataSetShortName,DataSetName,DataSetNamePersian,DataSetNamePashto,DataSetFor")] DataSetTbl dataSetTbl)
+        public ActionResult Edit([Bind(Include = "DEVID,DataElementValue,FKEVDataElementID,FKEVServiceID")] ElementValue elementValue)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(dataSetTbl).State = EntityState.Modified;
+                db.Entry(elementValue).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(dataSetTbl);
+            ViewBag.FKEVDataElementID = new SelectList(db.DataElements, "DEID", "DataElement1", elementValue.FKEVDataElementID);
+            return View(elementValue);
         }
 
-        // GET: DataSets/Delete/5
+        // GET: ElementValues/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DataSetTbl dataSetTbl = db.DataSetTbls.Find(id);
-            if (dataSetTbl == null)
+            ElementValue elementValue = db.ElementValues.Find(id);
+            if (elementValue == null)
             {
                 return HttpNotFound();
             }
-            return View(dataSetTbl);
+            return View(elementValue);
         }
 
-        // POST: DataSets/Delete/5
+        // POST: ElementValues/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DataSetTbl dataSetTbl = db.DataSetTbls.Find(id);
-            db.DataSetTbls.Remove(dataSetTbl);
+            ElementValue elementValue = db.ElementValues.Find(id);
+            db.ElementValues.Remove(elementValue);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -186,6 +186,7 @@
     <Compile Include="Controllers\DataSetsController.cs" />
     <Compile Include="Controllers\DataSetSectionElementsController.cs" />
     <Compile Include="Controllers\DataSetSectionsController.cs" />
+    <Compile Include="Controllers\ElementValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SkillTypesController.cs" />
@@ -300,6 +301,11 @@
     <Content Include="Views\AllElements\Details.cshtml" />
     <Content Include="Views\AllElements\Edit.cshtml" />
     <Content Include="Views\AllElements\Index.cshtml" />
+    <Content Include="Views\ElementValues\Create.cshtml" />
+    <Content Include="Views\ElementValues\Delete.cshtml" />
+    <Content Include="Views\ElementValues\Details.cshtml" />
+    <Content Include="Views\ElementValues\Edit.cshtml" />
+    <Content Include="Views\ElementValues\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
