@@ -11,7 +11,7 @@ namespace WardFormsCore.Data
         [Key]
         public int DEVID { get; set; }
 
-        public int? DataElementValue { get; set; }
+        public string DataElementValue { get; set; }
 
         public int? FKEVDataElementID { get; set; }
 

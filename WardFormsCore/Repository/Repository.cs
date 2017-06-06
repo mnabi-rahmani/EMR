@@ -31,6 +31,9 @@ namespace WardFormsCore.Repository
             return "test";
         }
 
-
+        public void save()
+        {
+            db.SaveChanges();
+        }
     }
 }

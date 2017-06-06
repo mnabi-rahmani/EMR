@@ -22,24 +22,38 @@ namespace WardForms.Controllers
       
         public ActionResult Create( AllElement AllElement)
         {
+            Repository db= new Repository();
+
+            //db.getmodel().ElementValues.Add();
+         
             string sss = "";
             foreach (string s in Request.Form.Keys)
-
-
             {
+                //if (s.Substring(1, 1) != "_")
+                {
+                    int a=0;
 
-                sss += s.ToString() + ":" + Request.Form[s] + " ";
+                    int.TryParse(s,out a);
+                    if (a != 0)
+                    {
+                        WardFormsCoreDataModel dbb = new WardFormsCoreDataModel();
 
+
+                        
+                        ElementValue ev= new ElementValue();
+
+                        ev.DataElementValue = Request.Form[s];
+                        ev.FKEVDataElementID = a;// int.Parse(Request.Form[s]);
+                        dbb.ElementValues.Add(ev);
+                        dbb.SaveChanges();
+                    }
+                  
+                }
 
             }
 
-            //foreach (string key in Request.Form)
-            //{
-            //    if (!key.StartsWith("checkbox"))
-            //    {}
-
-            //}
-            return View(AllElement);
+         Response.Redirect("/test/index");
+            return View();
         }
 
     }

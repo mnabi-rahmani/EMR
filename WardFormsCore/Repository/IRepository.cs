@@ -11,7 +11,8 @@ namespace WardFormsCore.Repository
     {
         WardFormsCoreDataModel getmodel();
 
-        
+     void save();
+
         string getdata(string charttype, string source);
 
     }
