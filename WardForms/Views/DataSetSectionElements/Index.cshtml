@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WardFormsCore.Data.DataSetSectionElement>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetSection.DataSetSectionShortName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetSectionElementShortName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetSectionElementName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionElementPersian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionElementPashto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetSection.DataSetSectionShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetSectionElementShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetSectionElementName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNameSectionElementPersian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNameSectionElementPashto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DSSEId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DSSEId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DSSEId })
+        </td>
+    </tr>
+}
+
+</table>

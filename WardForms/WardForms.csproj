@@ -183,6 +183,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DatasetElementsController.cs" />
     <Compile Include="Controllers\DataSetsController.cs" />
+    <Compile Include="Controllers\DataSetSectionElementsController.cs" />
     <Compile Include="Controllers\DataSetSectionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -190,6 +191,10 @@
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706061635242_abc.cs" />
+    <Compile Include="Migrations\201706061635242_abc.Designer.cs">
+      <DependentUpon>201706061635242_abc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -280,6 +285,11 @@
     <Content Include="Views\DatasetElements\Details.cshtml" />
     <Content Include="Views\DatasetElements\Edit.cshtml" />
     <Content Include="Views\DatasetElements\Index.cshtml" />
+    <Content Include="Views\DataSetSectionElements\Create.cshtml" />
+    <Content Include="Views\DataSetSectionElements\Delete.cshtml" />
+    <Content Include="Views\DataSetSectionElements\Details.cshtml" />
+    <Content Include="Views\DataSetSectionElements\Edit.cshtml" />
+    <Content Include="Views\DataSetSectionElements\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -300,6 +310,11 @@
       <Project>{7ebfc398-9c6d-4d27-a2ec-0fd4e37c07d1}</Project>
       <Name>WardFormsCore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706061635242_abc.resx">
+      <DependentUpon>201706061635242_abc.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

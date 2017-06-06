@@ -95,6 +95,15 @@
     <Compile Include="Data\sysdiagram.cs" />
     <Compile Include="Data\WardFormsCoreDataModel.cs" />
     <Compile Include="GeneralCore.cs" />
+    <Compile Include="Migrations\201706061524569_InitialCreate.cs" />
+    <Compile Include="Migrations\201706061524569_InitialCreate.Designer.cs">
+      <DependentUpon>201706061524569_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706061637002_acc.cs" />
+    <Compile Include="Migrations\201706061637002_acc.Designer.cs">
+      <DependentUpon>201706061637002_acc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
@@ -102,6 +111,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706061524569_InitialCreate.resx">
+      <DependentUpon>201706061524569_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706061637002_acc.resx">
+      <DependentUpon>201706061637002_acc.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,72 @@
+﻿@model WardFormsCore.Data.DataSetSectionElement
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DataSetSectionElement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetSection.DataSetSectionShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetSection.DataSetSectionShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetSectionElementShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetSectionElementShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetSectionElementName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetSectionElementName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionElementPersian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetNameSectionElementPersian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionElementPashto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetNameSectionElementPashto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DEID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DEID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
