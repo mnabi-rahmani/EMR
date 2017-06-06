@@ -12,6 +12,9 @@ namespace WardFormsCore.Data
         {
         }
 
+        public virtual DbSet<AllElement> AllElements { get; set; }
+        public virtual DbSet<allelementsv> allelementsvs { get; set; }
+
         public virtual DbSet<DataClassfication> DataClassfications { get; set; }
         public virtual DbSet<DataElement> DataElements { get; set; }
         public virtual DbSet<DataSetSection> DataSetSections { get; set; }
@@ -53,7 +56,6 @@ namespace WardFormsCore.Data
         public virtual DbSet<RoleType> RoleTypes { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<SkillType> SkillTypes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -76,6 +78,11 @@ namespace WardFormsCore.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<DataElement>()
+                .HasMany(e => e.DataSetSectionElements)
+                .WithOptional(e => e.DataElement)
+                .HasForeignKey(e => e.FKDSSEDataelementID);
+
+            modelBuilder.Entity<DataElement>()
                 .HasMany(e => e.ElementValues)
                 .WithOptional(e => e.DataElement)
                 .HasForeignKey(e => e.FKEVDataElementID)
@@ -92,8 +99,7 @@ namespace WardFormsCore.Data
             modelBuilder.Entity<DataSetSection>()
                 .HasMany(e => e.DataSetSectionElements)
                 .WithOptional(e => e.DataSetSection)
-                .HasForeignKey(e => e.FKDSSEDataSetSectionID)
-                .WillCascadeOnDelete();
+                .HasForeignKey(e => e.FKDSSEDataSetSectionID);
 
             modelBuilder.Entity<DataSetSectionElement>()
                 .Property(e => e.DataSetSectionElementShortName)
@@ -102,12 +108,6 @@ namespace WardFormsCore.Data
             modelBuilder.Entity<DataSetSectionElement>()
                 .Property(e => e.DataSetSectionElementName)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<DataSetSectionElement>()
-                .HasMany(e => e.DataElements)
-                .WithOptional(e => e.DataSetSectionElement)
-                .HasForeignKey(e => e.FKDEDataSetSectionElementID)
-                .WillCascadeOnDelete();
 
             modelBuilder.Entity<DataSetTbl>()
                 .Property(e => e.DataSetShortName)
@@ -278,12 +278,12 @@ namespace WardFormsCore.Data
             modelBuilder.Entity<Party>()
                 .HasMany(e => e.PartyRelationships)
                 .WithOptional(e => e.Party)
-                .HasForeignKey(e => e.PartyIdTo);
+                .HasForeignKey(e => e.PartyIdFrom);
 
             modelBuilder.Entity<Party>()
                 .HasMany(e => e.PartyRelationships1)
                 .WithOptional(e => e.Party1)
-                .HasForeignKey(e => e.PartyIdFrom);
+                .HasForeignKey(e => e.PartyIdTo);
 
             modelBuilder.Entity<Party>()
                 .HasMany(e => e.PartyRoles)
@@ -341,12 +341,12 @@ namespace WardFormsCore.Data
             modelBuilder.Entity<PartyRole>()
                 .HasMany(e => e.PartyRelationships)
                 .WithOptional(e => e.PartyRole)
-                .HasForeignKey(e => e.RoleTypeTo);
+                .HasForeignKey(e => e.RoleTypeFrom);
 
             modelBuilder.Entity<PartyRole>()
                 .HasMany(e => e.PartyRelationships1)
                 .WithOptional(e => e.PartyRole1)
-                .HasForeignKey(e => e.RoleTypeFrom);
+                .HasForeignKey(e => e.RoleTypeTo);
 
             modelBuilder.Entity<PartySkill>()
                 .Property(e => e.Skill)

@@ -1,0 +1,141 @@
+﻿@model IEnumerable<WardFormsCore.Data.AllElement>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNamePersian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNamePashto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetFor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetSectionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionPersian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionPashto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKDSSDataSetID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetSectionElementName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionElementPersian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionElementPashto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKDSSEDataSetSectionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKDSSEDataelementID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataElement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataElementPersian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataElementPashto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKDEDataSetClassficationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataElementStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNamePersian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNamePashto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetFor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetSectionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNameSectionPersian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNameSectionPashto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKDSSDataSetID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetSectionElementName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNameSectionElementPersian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNameSectionElementPashto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKDSSEDataSetSectionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKDSSEDataelementID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElementPersian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElementPashto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKDEDataSetClassficationID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SortOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElementStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using WardFormsCore.Repository;
 namespace WardForms.Controllers
 {
     public class TestController : Controller
@@ -11,7 +11,10 @@ namespace WardForms.Controllers
         // GET: Test
         public ActionResult Index()
         {
-            return View();
+            Repository r= new Repository();
+
+           
+            return View(r.getmodel().AllElements.ToList());
         }
     }
 }

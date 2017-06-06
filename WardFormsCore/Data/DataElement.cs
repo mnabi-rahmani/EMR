@@ -12,6 +12,7 @@ namespace WardFormsCore.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DataElement()
         {
+            DataSetSectionElements = new HashSet<DataSetSectionElement>();
             ElementValues = new HashSet<ElementValue>();
         }
 
@@ -28,8 +29,6 @@ namespace WardFormsCore.Data
         [StringLength(350)]
         public string DataElementPashto { get; set; }
 
-        public int? FKDEDataSetSectionElementID { get; set; }
-
         public int? FKDEDataSetClassficationID { get; set; }
 
         public int? SortOrder { get; set; }
@@ -38,7 +37,8 @@ namespace WardFormsCore.Data
 
         public virtual DataClassfication DataClassfication { get; set; }
 
-        public virtual DataSetSectionElement DataSetSectionElement { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DataSetSectionElement> DataSetSectionElements { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ElementValue> ElementValues { get; set; }

@@ -17,7 +17,7 @@ namespace WardForms.Controllers
         // GET: DataSetSectionElements
         public ActionResult Index()
         {
-            var dataSetSectionElements = db.DataSetSectionElements.Include(d => d.DataSetSection);
+            var dataSetSectionElements = db.DataSetSectionElements.Include(d => d.DataElement).Include(d => d.DataSetSection);
             return View(dataSetSectionElements.ToList());
         }
 
@@ -39,6 +39,7 @@ namespace WardForms.Controllers
         // GET: DataSetSectionElements/Create
         public ActionResult Create()
         {
+            ViewBag.FKDSSEDataelementID = new SelectList(db.DataElements, "DEID", "DataElement1");
             ViewBag.FKDSSEDataSetSectionID = new SelectList(db.DataSetSections, "DSSID", "DataSetSectionShortName");
             return View();
         }
@@ -48,7 +49,7 @@ namespace WardForms.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DSSEId,DataSetSectionElementShortName,DataSetSectionElementName,DataSetNameSectionElementPersian,DataSetNameSectionElementPashto,FKDSSEDataSetSectionID,DEID")] DataSetSectionElement dataSetSectionElement)
+        public ActionResult Create([Bind(Include = "DSSEId,DataSetSectionElementShortName,DataSetSectionElementName,DataSetNameSectionElementPersian,DataSetNameSectionElementPashto,FKDSSEDataSetSectionID,FKDSSEDataelementID")] DataSetSectionElement dataSetSectionElement)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +58,7 @@ namespace WardForms.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.FKDSSEDataelementID = new SelectList(db.DataElements, "DEID", "DataElement1", dataSetSectionElement.FKDSSEDataelementID);
             ViewBag.FKDSSEDataSetSectionID = new SelectList(db.DataSetSections, "DSSID", "DataSetSectionShortName", dataSetSectionElement.FKDSSEDataSetSectionID);
             return View(dataSetSectionElement);
         }
@@ -73,6 +75,7 @@ namespace WardForms.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.FKDSSEDataelementID = new SelectList(db.DataElements, "DEID", "DataElement1", dataSetSectionElement.FKDSSEDataelementID);
             ViewBag.FKDSSEDataSetSectionID = new SelectList(db.DataSetSections, "DSSID", "DataSetSectionShortName", dataSetSectionElement.FKDSSEDataSetSectionID);
             return View(dataSetSectionElement);
         }
@@ -82,7 +85,7 @@ namespace WardForms.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DSSEId,DataSetSectionElementShortName,DataSetSectionElementName,DataSetNameSectionElementPersian,DataSetNameSectionElementPashto,FKDSSEDataSetSectionID,DEID")] DataSetSectionElement dataSetSectionElement)
+        public ActionResult Edit([Bind(Include = "DSSEId,DataSetSectionElementShortName,DataSetSectionElementName,DataSetNameSectionElementPersian,DataSetNameSectionElementPashto,FKDSSEDataSetSectionID,FKDSSEDataelementID")] DataSetSectionElement dataSetSectionElement)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +93,7 @@ namespace WardForms.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.FKDSSEDataelementID = new SelectList(db.DataElements, "DEID", "DataElement1", dataSetSectionElement.FKDSSEDataelementID);
             ViewBag.FKDSSEDataSetSectionID = new SelectList(db.DataSetSections, "DSSID", "DataSetSectionShortName", dataSetSectionElement.FKDSSEDataSetSectionID);
             return View(dataSetSectionElement);
         }

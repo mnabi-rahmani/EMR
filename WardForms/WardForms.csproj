@@ -181,7 +181,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DatasetElementsController.cs" />
+    <Compile Include="Controllers\AllElementsController.cs" />
+    <Compile Include="Controllers\DataElementsController.cs" />
     <Compile Include="Controllers\DataSetsController.cs" />
     <Compile Include="Controllers\DataSetSectionElementsController.cs" />
     <Compile Include="Controllers\DataSetSectionsController.cs" />
@@ -195,6 +196,10 @@
     <Compile Include="Migrations\201706061635242_abc.cs" />
     <Compile Include="Migrations\201706061635242_abc.Designer.cs">
       <DependentUpon>201706061635242_abc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706061842314_asdfdd.cs" />
+    <Compile Include="Migrations\201706061842314_asdfdd.Designer.cs">
+      <DependentUpon>201706061842314_asdfdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -280,16 +285,21 @@
     <Content Include="Views\DataSetSections\Details.cshtml" />
     <Content Include="Views\DataSetSections\Edit.cshtml" />
     <Content Include="Views\DataSetSections\Index.cshtml" />
-    <Content Include="Views\DatasetElements\Create.cshtml" />
-    <Content Include="Views\DatasetElements\Delete.cshtml" />
-    <Content Include="Views\DatasetElements\Details.cshtml" />
-    <Content Include="Views\DatasetElements\Edit.cshtml" />
-    <Content Include="Views\DatasetElements\Index.cshtml" />
+    <Content Include="Views\DataElements\Create.cshtml" />
+    <Content Include="Views\DataElements\Delete.cshtml" />
+    <Content Include="Views\DataElements\Details.cshtml" />
+    <Content Include="Views\DataElements\Edit.cshtml" />
+    <Content Include="Views\DataElements\Index.cshtml" />
     <Content Include="Views\DataSetSectionElements\Create.cshtml" />
     <Content Include="Views\DataSetSectionElements\Delete.cshtml" />
     <Content Include="Views\DataSetSectionElements\Details.cshtml" />
     <Content Include="Views\DataSetSectionElements\Edit.cshtml" />
     <Content Include="Views\DataSetSectionElements\Index.cshtml" />
+    <Content Include="Views\AllElements\Create.cshtml" />
+    <Content Include="Views\AllElements\Delete.cshtml" />
+    <Content Include="Views\AllElements\Details.cshtml" />
+    <Content Include="Views\AllElements\Edit.cshtml" />
+    <Content Include="Views\AllElements\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -314,6 +324,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706061635242_abc.resx">
       <DependentUpon>201706061635242_abc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706061842314_asdfdd.resx">
+      <DependentUpon>201706061842314_asdfdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

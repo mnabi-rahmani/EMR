@@ -7,7 +7,7 @@ using WardFormsCore.Data;
 
 namespace WardFormsCore.Repository
 {
-    class Repository : IRepository
+   public class Repository : IRepository
     {
 
         WardFormsCoreDataModel db = new WardFormsCoreDataModel();

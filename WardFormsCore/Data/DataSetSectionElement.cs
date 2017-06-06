@@ -9,12 +9,6 @@ namespace WardFormsCore.Data
     [Table("DataSetSectionElement")]
     public partial class DataSetSectionElement
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DataSetSectionElement()
-        {
-            DataElements = new HashSet<DataElement>();
-        }
-
         [Key]
         public int DSSEId { get; set; }
 
@@ -33,11 +27,12 @@ namespace WardFormsCore.Data
 
         public int? FKDSSEDataSetSectionID { get; set; }
 
-        public int? DEID { get; set; }
+        public int? FKDSSEDataelementID { get; set; }
+
+     
 
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DataElement> DataElements { get; set; }
+        public virtual DataElement DataElement { get; set; }
 
         public virtual DataSetSection DataSetSection { get; set; }
     }

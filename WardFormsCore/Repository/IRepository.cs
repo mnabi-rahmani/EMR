@@ -7,7 +7,7 @@ using WardFormsCore.Data;
 
 namespace WardFormsCore.Repository
 {
-    interface IRepository
+ public   interface IRepository
     {
         WardFormsCoreDataModel getmodel();
 

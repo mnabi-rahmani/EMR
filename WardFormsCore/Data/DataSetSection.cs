@@ -33,9 +33,9 @@ namespace WardFormsCore.Data
 
         public int? FKDSSDataSetID { get; set; }
 
-        public virtual DataSetTbl DataSetTbl { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DataSetSectionElement> DataSetSectionElements { get; set; }
+
+        public virtual DataSetTbl DataSetTbl { get; set; }
     }
 }

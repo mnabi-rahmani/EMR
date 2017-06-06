@@ -10,18 +10,18 @@ using WardFormsCore.Data;
 
 namespace WardForms.Controllers
 {
-    public class DatasetElementsController : Controller
+    public class DataElementsController : Controller
     {
         private WardFormsCoreDataModel db = new WardFormsCoreDataModel();
 
-        // GET: DatasetElements
+        // GET: DataElements
         public ActionResult Index()
         {
-            var dataElements = db.DataElements.Include(d => d.DataClassfication).Include(d => d.DataSetSectionElement);
+            var dataElements = db.DataElements.Include(d => d.DataClassfication);
             return View(dataElements.ToList());
         }
 
-        // GET: DatasetElements/Details/5
+        // GET: DataElements/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,20 +36,19 @@ namespace WardForms.Controllers
             return View(dataElement);
         }
 
-        // GET: DatasetElements/Create
+        // GET: DataElements/Create
         public ActionResult Create()
         {
             ViewBag.FKDEDataSetClassficationID = new SelectList(db.DataClassfications, "DataClsID", "DataClassfication1");
-            ViewBag.FKDEDataSetSectionElementID = new SelectList(db.DataSetSectionElements, "DSSEId", "DataSetSectionElementShortName");
             return View();
         }
 
-        // POST: DatasetElements/Create
+        // POST: DataElements/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DEID,DataElement1,DataElementPersian,DataElementPashto,FKDEDataSetSectionElementID,FKDEDataSetClassficationID,SortOrder,DataElementStatus")] DataElement dataElement)
+        public ActionResult Create([Bind(Include = "DEID,DataElement1,DataElementPersian,DataElementPashto,FKDEDataSetClassficationID,SortOrder,DataElementStatus")] DataElement dataElement)
         {
             if (ModelState.IsValid)
             {
@@ -59,11 +58,10 @@ namespace WardForms.Controllers
             }
 
             ViewBag.FKDEDataSetClassficationID = new SelectList(db.DataClassfications, "DataClsID", "DataClassfication1", dataElement.FKDEDataSetClassficationID);
-            ViewBag.FKDEDataSetSectionElementID = new SelectList(db.DataSetSectionElements, "DSSEId", "DataSetSectionElementShortName", dataElement.FKDEDataSetSectionElementID);
             return View(dataElement);
         }
 
-        // GET: DatasetElements/Edit/5
+        // GET: DataElements/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,16 +74,15 @@ namespace WardForms.Controllers
                 return HttpNotFound();
             }
             ViewBag.FKDEDataSetClassficationID = new SelectList(db.DataClassfications, "DataClsID", "DataClassfication1", dataElement.FKDEDataSetClassficationID);
-            ViewBag.FKDEDataSetSectionElementID = new SelectList(db.DataSetSectionElements, "DSSEId", "DataSetSectionElementShortName", dataElement.FKDEDataSetSectionElementID);
             return View(dataElement);
         }
 
-        // POST: DatasetElements/Edit/5
+        // POST: DataElements/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DEID,DataElement1,DataElementPersian,DataElementPashto,FKDEDataSetSectionElementID,FKDEDataSetClassficationID,SortOrder,DataElementStatus")] DataElement dataElement)
+        public ActionResult Edit([Bind(Include = "DEID,DataElement1,DataElementPersian,DataElementPashto,FKDEDataSetClassficationID,SortOrder,DataElementStatus")] DataElement dataElement)
         {
             if (ModelState.IsValid)
             {
@@ -94,11 +91,10 @@ namespace WardForms.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.FKDEDataSetClassficationID = new SelectList(db.DataClassfications, "DataClsID", "DataClassfication1", dataElement.FKDEDataSetClassficationID);
-            ViewBag.FKDEDataSetSectionElementID = new SelectList(db.DataSetSectionElements, "DSSEId", "DataSetSectionElementShortName", dataElement.FKDEDataSetSectionElementID);
             return View(dataElement);
         }
 
-        // GET: DatasetElements/Delete/5
+        // GET: DataElements/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +109,7 @@ namespace WardForms.Controllers
             return View(dataElement);
         }
 
-        // POST: DatasetElements/Delete/5
+        // POST: DataElements/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

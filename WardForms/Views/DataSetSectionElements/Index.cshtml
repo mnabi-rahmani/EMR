@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.DataElement.DataElement1)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DataSetSection.DataSetSectionShortName)
         </th>
         <th>
@@ -26,14 +29,14 @@
         <th>
             @Html.DisplayNameFor(model => model.DataSetNameSectionElementPashto)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DEID)
-        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElement.DataElement1)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataSetSection.DataSetSectionShortName)
         </td>
@@ -48,9 +51,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataSetNameSectionElementPashto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DEID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.DSSEId }) |
