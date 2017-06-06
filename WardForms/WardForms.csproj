@@ -181,6 +181,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DatasetElementsController.cs" />
+    <Compile Include="Controllers\DataSetsController.cs" />
+    <Compile Include="Controllers\DataSetSectionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SkillTypesController.cs" />
@@ -202,11 +205,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Gridster\demo.css" />
-    <Content Include="Gridster\jquery.gridster.css" />
-    <Content Include="Gridster\jquery.gridster.js" />
-    <Content Include="Gridster\jquery.gridster.min.js" />
-    <Content Include="Gridster\jquery.min.js" />
+    <Content Include="Content\Gridster\demo.css" />
+    <Content Include="Content\Gridster\jquery.gridster.css" />
+    <Content Include="Content\Gridster\jquery.gridster.js" />
+    <Content Include="Content\Gridster\jquery.gridster.min.js" />
+    <Content Include="Content\Gridster\jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -262,6 +265,21 @@
     <Content Include="Views\SkillTypes\Details.cshtml" />
     <Content Include="Views\SkillTypes\Edit.cshtml" />
     <Content Include="Views\SkillTypes\Index.cshtml" />
+    <Content Include="Views\DataSets\Create.cshtml" />
+    <Content Include="Views\DataSets\Delete.cshtml" />
+    <Content Include="Views\DataSets\Details.cshtml" />
+    <Content Include="Views\DataSets\Edit.cshtml" />
+    <Content Include="Views\DataSets\Index.cshtml" />
+    <Content Include="Views\DataSetSections\Create.cshtml" />
+    <Content Include="Views\DataSetSections\Delete.cshtml" />
+    <Content Include="Views\DataSetSections\Details.cshtml" />
+    <Content Include="Views\DataSetSections\Edit.cshtml" />
+    <Content Include="Views\DataSetSections\Index.cshtml" />
+    <Content Include="Views\DatasetElements\Create.cshtml" />
+    <Content Include="Views\DatasetElements\Delete.cshtml" />
+    <Content Include="Views\DatasetElements\Details.cshtml" />
+    <Content Include="Views\DatasetElements\Edit.cshtml" />
+    <Content Include="Views\DatasetElements\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WardFormsCore.Data.DataSetTbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetShortName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNamePersian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetNamePashto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetFor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNamePersian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetNamePashto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetFor)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DSId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DSId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DSId })
+        </td>
+    </tr>
+}
+
+</table>

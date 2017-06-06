@@ -1,0 +1,58 @@
+﻿@model WardFormsCore.Data.DataSetSection
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DataSetSection</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetTbl.DataSetShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetTbl.DataSetShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetSectionShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetSectionShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetSectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetSectionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionPersian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetNameSectionPersian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetNameSectionPashto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetNameSectionPashto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DSSID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

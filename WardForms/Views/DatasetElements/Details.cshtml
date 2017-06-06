@@ -1,0 +1,74 @@
+﻿@model WardFormsCore.Data.DataElement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DataElement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataClassfication.DataClassfication1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataClassfication.DataClassfication1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetSectionElement.DataSetSectionElementShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetSectionElement.DataSetSectionElementShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElement1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElement1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElementPersian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElementPersian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElementPashto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElementPashto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SortOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElementStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElementStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DEID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

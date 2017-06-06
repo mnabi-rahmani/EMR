@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WardFormsCore.Data.DataElement>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataClassfication.DataClassfication1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSetSectionElement.DataSetSectionElementShortName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataElement1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataElementPersian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataElementPashto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataElementStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataClassfication.DataClassfication1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSetSectionElement.DataSetSectionElementShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElement1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElementPersian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElementPashto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SortOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataElementStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DEID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DEID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DEID })
+        </td>
+    </tr>
+}
+
+</table>

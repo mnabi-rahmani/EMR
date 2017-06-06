@@ -1,0 +1,80 @@
+﻿@model WardFormsCore.Data.DataElement
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DataElement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataClassfication.DataClassfication1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataClassfication.DataClassfication1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataSetSectionElement.DataSetSectionElementShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataSetSectionElement.DataSetSectionElementShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElement1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElement1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElementPersian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElementPersian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElementPashto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElementPashto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SortOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SortOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataElementStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataElementStatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
