@@ -3,8 +3,7 @@
 
 @{
     ViewBag.Title = "Index";
-   // Layout = null;
-
+    Layout = "~/Views/Shared/_SbAdminTheme.cshtml";
 }
 <link href="~/Content/Gridster/demo.css" rel="stylesheet" />
 <link href="~/Content/Gridster/jquery.gridster.css" rel="stylesheet" />
@@ -16,11 +15,14 @@
 @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <script src="~/Scripts/bootstrap.min.js"></script>*@
 
+
+
+
 @using (Html.BeginForm("create","Test","POST"))
 {
     @Html.AntiForgeryToken()
 
-    <div class="gridster" style="margin-top: 100px;">
+    <div class="gridster" style="margin-top: 10px;">
         <ul>
             @foreach (var item in Model)
             {
@@ -134,7 +136,7 @@
         $(function() {
 
             gridster = $(".gridster ul").gridster({
-                widget_base_dimensions: [200, 100],
+                widget_base_dimensions: [200, 44],
                 widget_margins: [5, 5],
                 helper: 'clone',
                 resize: {
