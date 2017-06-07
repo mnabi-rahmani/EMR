@@ -56,6 +56,7 @@
     <Compile Include="Data\DataSetSection.cs" />
     <Compile Include="Data\DataSetSectionElement.cs" />
     <Compile Include="Data\DataSetTbl.cs" />
+    <Compile Include="Data\DataSetUIconfig.cs" />
     <Compile Include="Data\District.cs" />
     <Compile Include="Data\ElementValue.cs" />
     <Compile Include="Data\Facility.cs" />
@@ -146,6 +147,10 @@
     <Compile Include="Migrations\201706062238537_elementvalue.Designer.cs">
       <DependentUpon>201706062238537_elementvalue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706070706107_uiconfig.cs" />
+    <Compile Include="Migrations\201706070706107_uiconfig.Designer.cs">
+      <DependentUpon>201706070706107_uiconfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
@@ -196,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706062238537_elementvalue.resx">
       <DependentUpon>201706062238537_elementvalue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706070706107_uiconfig.resx">
+      <DependentUpon>201706070706107_uiconfig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

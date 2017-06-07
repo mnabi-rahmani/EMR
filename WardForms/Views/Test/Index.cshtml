@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WardFormsCore.Data.AllElement>
+﻿@using WardFormsCore.Data
+@model IEnumerable<WardFormsCore.Data.AllElement>
 
 @{
     ViewBag.Title = "Index";
@@ -23,14 +24,26 @@
         <ul>
             @foreach (var item in Model)
             {
+                WardFormsCoreDataModel dbb = new WardFormsCoreDataModel();
+                DataSetUIconfig dsui = (from a in dbb.datasetUIconfig
+                                        where a.DSSEId == item.DSSEId
+                                        select a).First();
 
-                <li data-row="1" data-col="3" data-sizex="1" data-sizey="2" class="moveables">
 
+             //   if (dsui.DSUIID != 0)
+              //  {
+                    <li data-row="@dsui.data_row" data-col="@dsui.data_col" data-sizex="@dsui.data_sizex" data-sizey="@dsui.data_sizey" class="moveables" name="@item.DSSEId">
+
+               @*@   }
+             @    else
+              @  {
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="moveables" name="@item.DSSEId" >
+                }*@
                     <div class="form-horizontal" style="margin: 5px;">
                         <div class="form-group">
                             <label for="@item.DataElement" class="col-sm-3 control-label">@item.DataElement</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="@item.DataElement" name="@item.DEID" placeholder="@item.DataElement">
+                                <input type="text" class="form-control" id="@item.DataElement" name="@item.DSSEId" placeholder="@item.DataElement">
                             </div>
                         </div>
                     </div>
@@ -68,15 +81,56 @@
 
         $("#savechange").click(function (e) {
             e.preventDefault();
+          
 
             $(".moveables").each(function (index) {
-               alert(index + ": " + $(this).attr("data-col"));
+
+                var obj = {};
+             
+                var person = {
+                    data_row: $(this).attr('data-row'),
+                    data_col: $(this).attr('data-col'),
+                    data_sizex: $(this).attr('data-sizex'),
+                    data_sizey: $(this).attr('data-sizey'),
+                    name: $(this).attr('name')
+                 //   data_col: $(this).attr('data-col')
+
+               
+                }
+
+                //obj["data_row"] = $(this).attr('data-row');
+                //obj["data_col"] = $(this).attr('data-col');
+                //obj["data_sizex"] = $(this).attr('data-sizex');
+                //obj["data_sizey"] = $(this).attr('data-sizey');
+                //obj["data_sizey"] = $(this).attr('data-sizey');
+                //obj["name"] = $(this).attr('name');
+
+
+                var stringg = JSON.stringify(obj);
+
+                $.post('/test/uiconfig', person, donee, 'JSON');
+
+             
+                //$.ajax({
+                //    type: "POST",
+                //    url: "/test/uiconfig",
+                //    data: stringg,
+                //    success: donee,
+                //    dataType: "json"
+                //});
+
+                //  alert(index + ": " + $(this).attr("data-col"));
             });
 
         //    alert("Handler for .click() called.");
 
 
         });
+
+        function donee(data) {
+            alert("Done");
+
+        }
         $(function() {
 
             gridster = $(".gridster ul").gridster({

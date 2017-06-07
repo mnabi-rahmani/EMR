@@ -15,6 +15,8 @@ namespace WardFormsCore.Data
         public virtual DbSet<AllElement> AllElements { get; set; }
         public virtual DbSet<allelementsv> allelementsvs { get; set; }
 
+
+        public virtual DbSet<DataSetUIconfig> datasetUIconfig { get; set; }
         public virtual DbSet<DataClassfication> DataClassfications { get; set; }
         public virtual DbSet<DataElement> DataElements { get; set; }
         public virtual DbSet<DataSetSection> DataSetSections { get; set; }

@@ -35,5 +35,7 @@ namespace WardFormsCore.Data
         public virtual DataElement DataElement { get; set; }
 
         public virtual DataSetSection DataSetSection { get; set; }
+
+        public virtual ICollection<DataSetUIconfig> DataSetUIconfigs { get; set; }
     }
 }
