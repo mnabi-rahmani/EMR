@@ -1,4 +1,5 @@
-﻿@using WardFormsCore.Data
+﻿@using WardFormsCore
+@using WardFormsCore.Data
 @model IEnumerable<WardFormsCore.Data.AllElement>
 
 @{
@@ -26,21 +27,12 @@
         <ul>
             @foreach (var item in Model)
             {
-                WardFormsCoreDataModel dbb = new WardFormsCoreDataModel();
-                DataSetUIconfig dsui = (from a in dbb.datasetUIconfig
-                                        where a.DSSEId == item.DSSEId
-                                        select a).First();
+               
 
 
-             //   if (dsui.DSUIID != 0)
-              //  {
-                    <li data-row="@dsui.data_row" data-col="@dsui.data_col" data-sizex="@dsui.data_sizex" data-sizey="@dsui.data_sizey" class="moveables" name="@item.DSSEId">
+                @Html.Raw(UICore.GenerateUI(item.DSSEId))
+             //  @Response.Write(UICore.GenerateUI(item.DSSEId))
 
-               @*@   }
-             @    else
-              @  {
-                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="moveables" name="@item.DSSEId" >
-                }*@
                     <div class="form-horizontal" style="margin: 5px;">
                         <div class="form-group">
                             <label for="@item.DataElement" class="col-sm-3 control-label">@item.DataElement</label>
@@ -49,7 +41,8 @@
                             </div>
                         </div>
                     </div>
-                </li>
+             //  @Response.Write("</li>");
+                @Html.Raw("</li>")
 
             }
 

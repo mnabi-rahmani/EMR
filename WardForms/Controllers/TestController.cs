@@ -10,72 +10,44 @@ namespace WardForms.Controllers
 {
     public class TestController : Controller
     {
+        UnitOfWork UnitOfWork = new UnitOfWork(new WardFormsCoreDataModel());
         // GET: Test
         public ActionResult Index()
         {
-            Repository r= new Repository();
+        
+         return View(   UnitOfWork.DataSetUIconfigs.getallelements());
 
-           
-            return View(r.getmodel().AllElements.ToList());
+
+        //    return View(r.getmodel().AllElements.ToList());
+        //    return View();
         }
 
         [HttpPost]
 
-
+    
         public void uiconfig(string data_row, string data_col, string data_sizex, string data_sizey, string name)
         {
-            WardFormsCoreDataModel dbb = new WardFormsCoreDataModel();
-
-            int id = Convert.ToInt32(name);
-
-
-            DataSetUIconfig dsui = new DataSetUIconfig();
-
-            List<DataSetUIconfig> dsuilist = (from a in dbb.datasetUIconfig
-                where a.DSSEId == id
-                select a).ToList();
-
-            if (dsuilist.Count() == 0)
-            {
-                dsui.data_row = Convert.ToInt32(data_row);
-                dsui.data_col = Convert.ToInt32(data_col);
-                dsui.data_sizex = Convert.ToInt32(data_sizex);
-                dsui.data_sizey = Convert.ToInt32(data_sizey);
-                dsui.DSSEId = Convert.ToInt32(name);
-
-
-                dbb.datasetUIconfig.Add(dsui);
-                dbb.SaveChanges();
-
-            }
-            else
-            {
-                foreach (var d in dsuilist)
-                {
-                    dsui.data_row = Convert.ToInt32(data_row);
-                    dsui.data_col = Convert.ToInt32(data_col);
-                    dsui.data_sizex = Convert.ToInt32(data_sizex);
-                    dsui.data_sizey = Convert.ToInt32(data_sizey);
-                    dsui.DSSEId = Convert.ToInt32(name);
-                    dsui.DSUIID = d.DSUIID;
-
-                    dbb.datasetUIconfig.AddOrUpdate(dsui);
-                    dbb.SaveChanges();
-                }
-
-
-
-
-
-
-
-
-            }
+          
+            UnitOfWork.DataSetUIconfigs.AddorUpdateExisting( data_row,  data_col,  data_sizex,  data_sizey,  name);
+            UnitOfWork.Complete();
         }
+
+
+
+
+
+
+
+
+    
+
+       
+
 
         public ActionResult Create( AllElement AllElement)
         {
-            Repository db= new Repository();
+           UnitOfWork unitOfWork = new UnitOfWork(new WardFormsCoreDataModel());
+
 
             //db.getmodel().ElementValues.Add();
          
@@ -89,7 +61,7 @@ namespace WardForms.Controllers
                     int.TryParse(s,out a);
                     if (a != 0)
                     {
-                        WardFormsCoreDataModel dbb = new WardFormsCoreDataModel();
+                   //     WardFormsCoreDataModel dbb = new WardFormsCoreDataModel();
 
 
                         
@@ -97,8 +69,10 @@ namespace WardForms.Controllers
 
                         ev.DataElementValue = Request.Form[s];
                         ev.FKEVDataElementID = a;// int.Parse(Request.Form[s]);
-                        dbb.ElementValues.Add(ev);
-                        dbb.SaveChanges();
+                      //  dbb.ElementValues.Add(ev);
+                       // dbb.SaveChanges();
+                       unitOfWork.Elements.Add(ev);
+                       unitOfWork.Complete();
                     }
                   
                 }
