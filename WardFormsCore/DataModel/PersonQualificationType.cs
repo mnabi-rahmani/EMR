@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -6,16 +6,16 @@ namespace WardFormsCore.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("PartyQualificationType")]
-    public partial class PartyQualificationType
+    [Table("PersonQualificationType")]
+    public partial class PersonQualificationType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PartyQualificationType()
+        public PersonQualificationType()
         {
-            PartyQualifications = new HashSet<PartyQualification>();
+            PersonQualifications = new HashSet<PersonQualification>();
         }
 
-        public int PartyQualificationTypeID { get; set; }
+        public int PersonQualificationTypeID { get; set; }
 
         [StringLength(250)]
         public string QualificationType { get; set; }
@@ -27,6 +27,6 @@ namespace WardFormsCore.Data
         public string PartyQualificationTypeDescription { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PartyQualification> PartyQualifications { get; set; }
+        public virtual ICollection<PersonQualification> PersonQualifications { get; set; }
     }
 }

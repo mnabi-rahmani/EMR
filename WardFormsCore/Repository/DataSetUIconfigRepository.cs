@@ -4,7 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WardFormsCore.Data;
+using WardFormsCore.DataModel;
 
 namespace WardFormsCore.Repository
 {
@@ -57,7 +57,7 @@ namespace WardFormsCore.Repository
             dsui.data_sizey = Convert.ToInt32(data_sizey);
             dsui.DSSEId = Convert.ToInt32(name);
             dsui.DSUIID = dsui.DSUIID;
-                WardformsContext.datasetUIconfig.AddOrUpdate(dsui);
+                WardformsContext.DataSetUIconfigs.AddOrUpdate(dsui);
 
             }
             else
@@ -69,7 +69,7 @@ namespace WardFormsCore.Repository
                 dsui2.data_sizey = Convert.ToInt32(data_sizey);
                 dsui2.DSSEId = Convert.ToInt32(name);
                 // dsui.DSUIID = dsui.DSUIID;
-                WardformsContext.datasetUIconfig.AddOrUpdate(dsui2);
+                WardformsContext.DataSetUIconfigs.AddOrUpdate(dsui2);
             }
        
 

@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -21,27 +21,23 @@ namespace WardFormsCore.Data
 
         public DateTime? ThruDate { get; set; }
 
-        public int? PartyIdTo { get; set; }
-
-        public int? RoleTypeTo { get; set; }
-
         public int? PartyIdFrom { get; set; }
 
         public int? RoleTypeFrom { get; set; }
+
+        public int? PartyIdTo { get; set; }
+
+        public int? RoleTypeTo { get; set; }
 
         [StringLength(255)]
         public string RelationshipName { get; set; }
 
         public int? PartyRelationshipTypeId { get; set; }
 
-        public virtual Party Party { get; set; }
-
-        public virtual Party Party1 { get; set; }
-
         public virtual PartyRelationshipType PartyRelationshipType { get; set; }
 
-        public virtual PartyRole PartyRole { get; set; }
+        public virtual PersonRole PersonRole { get; set; }
 
-        public virtual PartyRole PartyRole1 { get; set; }
+        public virtual PersonRole PersonRole1 { get; set; }
     }
 }

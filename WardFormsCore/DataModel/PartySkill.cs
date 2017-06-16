@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace WardFormsCore.Data
         [Key]
         public int PartySkillIId { get; set; }
 
-        public int? FKPSPartyId { get; set; }
+        public int? PartyID { get; set; }
 
         public int? FKPSSkillTypeId { get; set; }
 
@@ -31,8 +31,8 @@ namespace WardFormsCore.Data
 
         public DateTime? EndDate { get; set; }
 
-        public virtual Party Party { get; set; }
-
         public virtual SkillType SkillType { get; set; }
+
+        public virtual Person Person { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace WardFormsCore.Data
 
         public int? FKSWardID { get; set; }
 
-        public int? FKSPartyID { get; set; }
+        public int? VisitID { get; set; }
 
         public DateTime? StartDate { get; set; }
 
@@ -33,7 +33,7 @@ namespace WardFormsCore.Data
 
         public virtual Facility Facility { get; set; }
 
-        public virtual Party Party { get; set; }
+        public virtual PatientVisit PatientVisit { get; set; }
 
         public virtual PurposeType PurposeType { get; set; }
 

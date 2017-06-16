@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;

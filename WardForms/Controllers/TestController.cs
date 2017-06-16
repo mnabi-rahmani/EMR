@@ -4,7 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WardFormsCore.Data;
+using WardFormsCore.DataModel;
 using WardFormsCore.Repository;
 namespace WardForms.Controllers
 {

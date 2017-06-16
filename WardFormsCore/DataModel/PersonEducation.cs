@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -18,9 +18,8 @@ namespace WardFormsCore.Data
         [StringLength(500)]
         public string EducationDetails { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? FKPEMRID { get; set; }
+        public int? FKPEMRID { get; set; }
 
-        public virtual PersonInfo PersonInfo { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

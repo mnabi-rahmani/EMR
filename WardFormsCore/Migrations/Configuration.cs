@@ -5,7 +5,7 @@ namespace WardFormsCore.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WardFormsCore.Data.WardFormsCoreDataModel>
+    internal sealed class Configuration : DbMigrationsConfiguration<WardFormsCore.DataModel.WardFormsCoreDataModel>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace WardFormsCore.Migrations
             ContextKey = "WardFormsCore.Data.WardFormsCoreDataModel";
         }
 
-        protected override void Seed(WardFormsCore.Data.WardFormsCoreDataModel context)
+        protected override void Seed(WardFormsCore.DataModel.WardFormsCoreDataModel context)
         {
             //  This method will be called after migrating to the latest version.
 

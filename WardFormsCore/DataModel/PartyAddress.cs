@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -25,8 +25,6 @@ namespace WardFormsCore.Data
         public DateTime? PartyAddressThruDate { get; set; }
 
         public virtual District District { get; set; }
-
-        public virtual Party Party { get; set; }
 
         public virtual Province Province { get; set; }
     }

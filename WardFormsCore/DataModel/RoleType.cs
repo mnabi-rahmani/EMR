@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace WardFormsCore.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RoleType()
         {
-            PartyRoles = new HashSet<PartyRole>();
+            PersonRoles = new HashSet<PersonRole>();
         }
 
         public int RoleTypeId { get; set; }
@@ -21,14 +21,7 @@ namespace WardFormsCore.Data
         [StringLength(255)]
         public string RoleType1 { get; set; }
 
-        [StringLength(255)]
-        public string RoleTypeLocal { get; set; }
-
-        public DateTime? StartDate { get; set; }
-
-        public DateTime? EndDate { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PartyRole> PartyRoles { get; set; }
+        public virtual ICollection<PersonRole> PersonRoles { get; set; }
     }
 }

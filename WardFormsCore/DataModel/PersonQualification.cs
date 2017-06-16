@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -6,14 +6,15 @@ namespace WardFormsCore.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("PartyQualification")]
-    public partial class PartyQualification
+    [Table("PersonQualification")]
+    public partial class PersonQualification
     {
+        [Key]
         public int PartyQualificationId { get; set; }
 
-        public int? FKPQPartyID { get; set; }
+        public int? PartyID { get; set; }
 
-        public int? FKPQPartyQualificationTypeId { get; set; }
+        public int? PersonQualificationTypeId { get; set; }
 
         [StringLength(500)]
         public string PartyQualificationDescription { get; set; }
@@ -31,8 +32,8 @@ namespace WardFormsCore.Data
 
         public DateTime? ThruDate { get; set; }
 
-        public virtual Party Party { get; set; }
+        public virtual Person Person { get; set; }
 
-        public virtual PartyQualificationType PartyQualificationType { get; set; }
+        public virtual PersonQualificationType PersonQualificationType { get; set; }
     }
 }

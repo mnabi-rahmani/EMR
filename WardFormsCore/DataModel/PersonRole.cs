@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -9,21 +9,37 @@ namespace WardFormsCore.Data
     [Table("PersonRole")]
     public partial class PersonRole
     {
-        [Column(TypeName = "numeric")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public decimal PersonRoleID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PersonRole()
+        {
+            PartyRelationships = new HashSet<PartyRelationship>();
+            PartyRelationships1 = new HashSet<PartyRelationship>();
+        }
 
-        public int? FKPRPersonRoleTypeID { get; set; }
+        public int PersonRoleID { get; set; }
 
         public DateTime? StartDate { get; set; }
 
         public DateTime? ThruDate { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? FKPRMRID { get; set; }
+        public int? PartyID { get; set; }
 
-        public virtual PersonInfo PersonInfo { get; set; }
+        public int? RoleTypeId { get; set; }
 
-        public virtual PersonRoleType PersonRoleType { get; set; }
+        public virtual Employee Employee { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PartyRelationship> PartyRelationships { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PartyRelationship> PartyRelationships1 { get; set; }
+
+        public virtual Patient Patient { get; set; }
+
+        public virtual Person Person { get; set; }
+
+        public virtual RoleType RoleType { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

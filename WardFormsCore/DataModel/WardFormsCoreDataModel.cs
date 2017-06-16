@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Data.Entity;
@@ -12,18 +12,15 @@ namespace WardFormsCore.Data
         {
         }
 
-        public virtual DbSet<AllElement> AllElements { get; set; }
-        public virtual DbSet<allelementsv> allelementsvs { get; set; }
-
-
-        public virtual DbSet<DataSetUIconfig> datasetUIconfig { get; set; }
         public virtual DbSet<DataClassfication> DataClassfications { get; set; }
         public virtual DbSet<DataElement> DataElements { get; set; }
         public virtual DbSet<DataSetSection> DataSetSections { get; set; }
         public virtual DbSet<DataSetSectionElement> DataSetSectionElements { get; set; }
         public virtual DbSet<DataSetTbl> DataSetTbls { get; set; }
+        public virtual DbSet<DataSetUIconfig> DataSetUIconfigs { get; set; }
         public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<ElementValue> ElementValues { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Facility> Facilities { get; set; }
         public virtual DbSet<FacilityContactMechanisim> FacilityContactMechanisims { get; set; }
         public virtual DbSet<FacilityContactMechanisimPurpose> FacilityContactMechanisimPurposes { get; set; }
@@ -36,28 +33,33 @@ namespace WardFormsCore.Data
         public virtual DbSet<FacilityParty> FacilityParties { get; set; }
         public virtual DbSet<FacilityRole> FacilityRoles { get; set; }
         public virtual DbSet<FacilityType> FacilityTypes { get; set; }
+        public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<Party> Parties { get; set; }
         public virtual DbSet<PartyAddress> PartyAddresses { get; set; }
         public virtual DbSet<PartyGroup> PartyGroups { get; set; }
-        public virtual DbSet<PartyQualification> PartyQualifications { get; set; }
-        public virtual DbSet<PartyQualificationType> PartyQualificationTypes { get; set; }
         public virtual DbSet<PartyRelationship> PartyRelationships { get; set; }
         public virtual DbSet<PartyRelationshipType> PartyRelationshipTypes { get; set; }
-        public virtual DbSet<PartyRole> PartyRoles { get; set; }
         public virtual DbSet<PartySkill> PartySkills { get; set; }
         public virtual DbSet<PartyType> PartyTypes { get; set; }
+        public virtual DbSet<Patient> Patients { get; set; }
+        public virtual DbSet<PatientVisit> PatientVisits { get; set; }
+        public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<PersonAddress> PersonAddresses { get; set; }
         public virtual DbSet<PersonEducation> PersonEducations { get; set; }
-        public virtual DbSet<PersonInfo> PersonInfoes { get; set; }
         public virtual DbSet<PersonOccupation> PersonOccupations { get; set; }
+        public virtual DbSet<PersonQualification> PersonQualifications { get; set; }
+        public virtual DbSet<PersonQualificationType> PersonQualificationTypes { get; set; }
         public virtual DbSet<PersonRole> PersonRoles { get; set; }
-        public virtual DbSet<PersonRoleType> PersonRoleTypes { get; set; }
         public virtual DbSet<Province> Provinces { get; set; }
         public virtual DbSet<PurposeType> PurposeTypes { get; set; }
         public virtual DbSet<Refer> Refers { get; set; }
         public virtual DbSet<RoleType> RoleTypes { get; set; }
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<SkillType> SkillTypes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<AllElement> AllElements { get; set; }
+        public virtual DbSet<allelementsv> allelementsvs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -259,13 +261,8 @@ namespace WardFormsCore.Data
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Party>()
-                .Property(e => e.PartyDescription)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Party>()
-                .HasMany(e => e.PartyAddresses)
-                .WithOptional(e => e.Party)
-                .HasForeignKey(e => e.FKPAPartyId);
+                .HasOptional(e => e.Organization)
+                .WithRequired(e => e.Party);
 
             modelBuilder.Entity<Party>()
                 .HasMany(e => e.PartyGroups)
@@ -273,56 +270,12 @@ namespace WardFormsCore.Data
                 .HasForeignKey(e => e.FKPGPartyID);
 
             modelBuilder.Entity<Party>()
-                .HasMany(e => e.PartyQualifications)
-                .WithOptional(e => e.Party)
-                .HasForeignKey(e => e.FKPQPartyID);
-
-            modelBuilder.Entity<Party>()
-                .HasMany(e => e.PartyRelationships)
-                .WithOptional(e => e.Party)
-                .HasForeignKey(e => e.PartyIdFrom);
-
-            modelBuilder.Entity<Party>()
-                .HasMany(e => e.PartyRelationships1)
-                .WithOptional(e => e.Party1)
-                .HasForeignKey(e => e.PartyIdTo);
-
-            modelBuilder.Entity<Party>()
-                .HasMany(e => e.PartyRoles)
-                .WithOptional(e => e.Party)
-                .HasForeignKey(e => e.FKPRPartyID);
-
-            modelBuilder.Entity<Party>()
-                .HasMany(e => e.PartySkills)
-                .WithOptional(e => e.Party)
-                .HasForeignKey(e => e.FKPSPartyId);
-
-            modelBuilder.Entity<Party>()
-                .HasMany(e => e.PersonInfoes)
-                .WithOptional(e => e.Party)
-                .HasForeignKey(e => e.FKPIPartyID);
-
-            modelBuilder.Entity<Party>()
-                .HasMany(e => e.Services)
-                .WithOptional(e => e.Party)
-                .HasForeignKey(e => e.FKSPartyID);
+                .HasOptional(e => e.Person)
+                .WithRequired(e => e.Party);
 
             modelBuilder.Entity<PartyGroup>()
                 .Property(e => e.GroupName)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<PartyQualification>()
-                .Property(e => e.Title)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PartyQualificationType>()
-                .Property(e => e.QualificationType)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PartyQualificationType>()
-                .HasMany(e => e.PartyQualifications)
-                .WithOptional(e => e.PartyQualificationType)
-                .HasForeignKey(e => e.FKPQPartyQualificationTypeId);
 
             modelBuilder.Entity<PartyRelationship>()
                 .Property(e => e.PartyRelationshipDescription)
@@ -336,109 +289,87 @@ namespace WardFormsCore.Data
                 .Property(e => e.PartyRelationshipTypeDescription)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PartyRole>()
-                .Property(e => e.PartyRoleDescription)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PartyRole>()
-                .HasMany(e => e.PartyRelationships)
-                .WithOptional(e => e.PartyRole)
-                .HasForeignKey(e => e.RoleTypeFrom);
-
-            modelBuilder.Entity<PartyRole>()
-                .HasMany(e => e.PartyRelationships1)
-                .WithOptional(e => e.PartyRole1)
-                .HasForeignKey(e => e.RoleTypeTo);
-
             modelBuilder.Entity<PartySkill>()
                 .Property(e => e.Skill)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PartyType>()
-                .Property(e => e.PartyTypeDescription)
+                .Property(e => e.PartyType1)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PartyType>()
-                .HasMany(e => e.Parties)
-                .WithOptional(e => e.PartyType)
-                .HasForeignKey(e => e.FKPPartyType);
+            modelBuilder.Entity<Patient>()
+                .HasMany(e => e.PatientVisits)
+                .WithRequired(e => e.Patient)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Person>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Person>()
+                .Property(e => e.FatherName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Person>()
+                .Property(e => e.PhoneNumber)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Person>()
+                .Property(e => e.SocialSecurityNumber)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Person>()
+                .Property(e => e.PassportNumber)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(e => e.PersonAddresses)
+                .WithOptional(e => e.Person)
+                .HasForeignKey(e => e.FKPAMRID);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(e => e.PersonEducations)
+                .WithOptional(e => e.Person)
+                .HasForeignKey(e => e.FKPEMRID);
+
+            modelBuilder.Entity<Person>()
+                .HasMany(e => e.PersonOccupations)
+                .WithOptional(e => e.Person)
+                .HasForeignKey(e => e.FKPOMRID);
 
             modelBuilder.Entity<PersonAddress>()
                 .Property(e => e.AddressType)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PersonAddress>()
-                .Property(e => e.FKPAMRID)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<PersonEducation>()
-                .Property(e => e.FKPEMRID)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<PersonInfo>()
-                .Property(e => e.MRID)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<PersonInfo>()
-                .Property(e => e.Name)
+            modelBuilder.Entity<PersonQualification>()
+                .Property(e => e.Title)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PersonInfo>()
-                .Property(e => e.FatherName)
+            modelBuilder.Entity<PersonQualificationType>()
+                .Property(e => e.QualificationType)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<PersonInfo>()
-                .Property(e => e.PhoneNumber)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PersonInfo>()
-                .Property(e => e.SocialSecurityNumber)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PersonInfo>()
-                .Property(e => e.PassportNumber)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PersonInfo>()
-                .HasMany(e => e.PersonAddresses)
-                .WithOptional(e => e.PersonInfo)
-                .HasForeignKey(e => e.FKPAMRID);
-
-            modelBuilder.Entity<PersonInfo>()
-                .HasMany(e => e.PersonEducations)
-                .WithOptional(e => e.PersonInfo)
-                .HasForeignKey(e => e.FKPEMRID);
-
-            modelBuilder.Entity<PersonInfo>()
-                .HasMany(e => e.PersonOccupations)
-                .WithOptional(e => e.PersonInfo)
-                .HasForeignKey(e => e.FKPOMRID);
-
-            modelBuilder.Entity<PersonInfo>()
-                .HasMany(e => e.PersonRoles)
-                .WithOptional(e => e.PersonInfo)
-                .HasForeignKey(e => e.FKPRMRID);
-
-            modelBuilder.Entity<PersonOccupation>()
-                .Property(e => e.FKPOMRID)
-                .HasPrecision(18, 0);
 
             modelBuilder.Entity<PersonRole>()
-                .Property(e => e.PersonRoleID)
-                .HasPrecision(18, 0);
+                .HasOptional(e => e.Employee)
+                .WithRequired(e => e.PersonRole);
 
             modelBuilder.Entity<PersonRole>()
-                .Property(e => e.FKPRMRID)
-                .HasPrecision(18, 0);
+                .HasMany(e => e.PartyRelationships)
+                .WithOptional(e => e.PersonRole)
+                .HasForeignKey(e => e.RoleTypeTo);
 
-            modelBuilder.Entity<PersonRoleType>()
-                .Property(e => e.PersonRoleType1)
-                .IsUnicode(false);
+            modelBuilder.Entity<PersonRole>()
+                .HasMany(e => e.PartyRelationships1)
+                .WithOptional(e => e.PersonRole1)
+                .HasForeignKey(e => e.RoleTypeFrom);
 
-            modelBuilder.Entity<PersonRoleType>()
-                .HasMany(e => e.PersonRoles)
-                .WithOptional(e => e.PersonRoleType)
-                .HasForeignKey(e => e.FKPRPersonRoleTypeID);
+            modelBuilder.Entity<PersonRole>()
+                .HasOptional(e => e.Patient)
+                .WithRequired(e => e.PersonRole);
+
+            modelBuilder.Entity<PersonRole>()
+                .HasOptional(e => e.User)
+                .WithRequired(e => e.PersonRole);
 
             modelBuilder.Entity<Province>()
                 .Property(e => e.Province1)
@@ -477,11 +408,6 @@ namespace WardFormsCore.Data
                 .Property(e => e.RoleType1)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<RoleType>()
-                .HasMany(e => e.PartyRoles)
-                .WithOptional(e => e.RoleType)
-                .HasForeignKey(e => e.FKPRRoleTypeId);
-
             modelBuilder.Entity<Service>()
                 .HasMany(e => e.Refers)
                 .WithOptional(e => e.Service)
@@ -495,6 +421,70 @@ namespace WardFormsCore.Data
                 .HasMany(e => e.PartySkills)
                 .WithOptional(e => e.SkillType)
                 .HasForeignKey(e => e.FKPSSkillTypeId);
+
+            modelBuilder.Entity<AllElement>()
+                .Property(e => e.DataSetShortName)
+                .IsFixedLength();
+
+            modelBuilder.Entity<AllElement>()
+                .Property(e => e.DataSetName)
+                .IsFixedLength();
+
+            modelBuilder.Entity<AllElement>()
+                .Property(e => e.DataSetFor)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AllElement>()
+                .Property(e => e.DataSetSectionShortName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AllElement>()
+                .Property(e => e.DataSetSectionName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AllElement>()
+                .Property(e => e.DataSetSectionElementShortName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AllElement>()
+                .Property(e => e.DataSetSectionElementName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AllElement>()
+                .Property(e => e.DataElement)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<allelementsv>()
+                .Property(e => e.DataSetShortName)
+                .IsFixedLength();
+
+            modelBuilder.Entity<allelementsv>()
+                .Property(e => e.DataSetName)
+                .IsFixedLength();
+
+            modelBuilder.Entity<allelementsv>()
+                .Property(e => e.DataSetFor)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<allelementsv>()
+                .Property(e => e.DataSetSectionShortName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<allelementsv>()
+                .Property(e => e.DataSetSectionName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<allelementsv>()
+                .Property(e => e.DataSetSectionElementShortName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<allelementsv>()
+                .Property(e => e.DataSetSectionElementName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<allelementsv>()
+                .Property(e => e.DataElement)
+                .IsUnicode(false);
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -6,21 +6,23 @@ namespace WardFormsCore.Data
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("PersonInfo")]
-    public partial class PersonInfo
+    [Table("Person")]
+    public partial class Person
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PersonInfo()
+        public Person()
         {
+            PartySkills = new HashSet<PartySkill>();
             PersonAddresses = new HashSet<PersonAddress>();
             PersonEducations = new HashSet<PersonEducation>();
             PersonOccupations = new HashSet<PersonOccupation>();
+            PersonQualifications = new HashSet<PersonQualification>();
             PersonRoles = new HashSet<PersonRole>();
         }
 
         [Key]
-        [Column(TypeName = "numeric")]
-        public decimal MRID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int PartyID { get; set; }
 
         [StringLength(350)]
         public string Name { get; set; }
@@ -39,8 +41,6 @@ namespace WardFormsCore.Data
 
         public int? BloodGroup { get; set; }
 
-        public int? FKPIPartyID { get; set; }
-
         [StringLength(60)]
         public string SocialSecurityNumber { get; set; }
 
@@ -50,6 +50,9 @@ namespace WardFormsCore.Data
         public virtual Party Party { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PartySkill> PartySkills { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonAddress> PersonAddresses { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -57,6 +60,9 @@ namespace WardFormsCore.Data
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonOccupation> PersonOccupations { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PersonQualification> PersonQualifications { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonRole> PersonRoles { get; set; }

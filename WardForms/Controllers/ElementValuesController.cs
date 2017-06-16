@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using WardFormsCore.Data;
+using WardFormsCore.DataModel;
 
 namespace WardForms.Controllers
 {

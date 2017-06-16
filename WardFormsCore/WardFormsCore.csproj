@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModel\AllElement.cs" />
+    <Compile Include="DataModel\allelementsv.cs" />
     <Compile Include="DataModel\DataClassfication.cs" />
     <Compile Include="DataModel\DataElement.cs" />
     <Compile Include="DataModel\DataSetSection.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="DataModel\DataSetUIconfig.cs" />
     <Compile Include="DataModel\District.cs" />
     <Compile Include="DataModel\ElementValue.cs" />
+    <Compile Include="DataModel\Employee.cs" />
     <Compile Include="DataModel\Facility.cs" />
     <Compile Include="DataModel\FacilityContactMechanisim.cs" />
     <Compile Include="DataModel\FacilityContactMechanisimPurpose.cs" />
@@ -71,28 +74,31 @@
     <Compile Include="DataModel\FacilityParty.cs" />
     <Compile Include="DataModel\FacilityRole.cs" />
     <Compile Include="DataModel\FacilityType.cs" />
+    <Compile Include="DataModel\Organization.cs" />
     <Compile Include="DataModel\Party.cs" />
     <Compile Include="DataModel\PartyAddress.cs" />
     <Compile Include="DataModel\PartyGroup.cs" />
-    <Compile Include="DataModel\PartyQualification.cs" />
-    <Compile Include="DataModel\PartyQualificationType.cs" />
     <Compile Include="DataModel\PartyRelationship.cs" />
     <Compile Include="DataModel\PartyRelationshipType.cs" />
-    <Compile Include="DataModel\PartyRole.cs" />
     <Compile Include="DataModel\PartySkill.cs" />
     <Compile Include="DataModel\PartyType.cs" />
+    <Compile Include="DataModel\Patient.cs" />
+    <Compile Include="DataModel\PatientVisit.cs" />
+    <Compile Include="DataModel\Person.cs" />
     <Compile Include="DataModel\PersonAddress.cs" />
     <Compile Include="DataModel\PersonEducation.cs" />
-    <Compile Include="DataModel\PersonInfo.cs" />
     <Compile Include="DataModel\PersonOccupation.cs" />
+    <Compile Include="DataModel\PersonQualification.cs" />
+    <Compile Include="DataModel\PersonQualificationType.cs" />
     <Compile Include="DataModel\PersonRole.cs" />
-    <Compile Include="DataModel\PersonRoleType.cs" />
     <Compile Include="DataModel\Province.cs" />
     <Compile Include="DataModel\PurposeType.cs" />
     <Compile Include="DataModel\Refer.cs" />
     <Compile Include="DataModel\RoleType.cs" />
     <Compile Include="DataModel\Service.cs" />
     <Compile Include="DataModel\SkillType.cs" />
+    <Compile Include="DataModel\sysdiagram.cs" />
+    <Compile Include="DataModel\User.cs" />
     <Compile Include="DataModel\WardFormsCoreDataModel.cs" />
     <Compile Include="GeneralCore.cs" />
     <Compile Include="Migrations\201706061524569_InitialCreate.cs" />
@@ -151,6 +157,10 @@
     <Compile Include="Migrations\201706070706107_uiconfig.Designer.cs">
       <DependentUpon>201706070706107_uiconfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706161753029_testt.cs" />
+    <Compile Include="Migrations\201706161753029_testt.Designer.cs">
+      <DependentUpon>201706161753029_testt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DataSetUIconfigRepository.cs" />
@@ -160,8 +170,6 @@
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\IUnitOfWork.cs" />
     <Compile Include="Repository\Repository.cs" />
-    <Compile Include="DataModel\AllElement.cs" />
-    <Compile Include="DataModel\allelementsv.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="UICore.cs" />
   </ItemGroup>
@@ -211,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706070706107_uiconfig.resx">
       <DependentUpon>201706070706107_uiconfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706161753029_testt.resx">
+      <DependentUpon>201706161753029_testt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-namespace WardFormsCore.Data
+namespace WardFormsCore.DataModel
 {
     using System;
     using System.Collections.Generic;
@@ -28,12 +28,11 @@ namespace WardFormsCore.Data
 
         public DateTime? ThruDate { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? FKPAMRID { get; set; }
+        public int? FKPAMRID { get; set; }
 
         public virtual District District1 { get; set; }
 
-        public virtual PersonInfo PersonInfo { get; set; }
+        public virtual Person Person { get; set; }
 
         public virtual Province Province1 { get; set; }
     }
