@@ -15,7 +15,7 @@ namespace WardFormsCore.DataModel
 
         public int? FKEVDataElementID { get; set; }
 
-        public int? FKEVServiceID { get; set; }
+        public int? ServiceID { get; set; }
 
         public virtual DataElement DataElement { get; set; }
     }

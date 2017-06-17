@@ -75,7 +75,15 @@ namespace WardFormsCore.Repository
 
 
         }
+        
 
+             public IEnumerable<AllElement> getallelementsfor(int? _datasetfor )
+        {
+            return WardformsContext.AllElements.Where(a=>a.DataSetFor==_datasetfor.ToString()).ToList();
+
+
+
+        }
         public IEnumerable<AllElement> getallelements()
         {
             return WardformsContext.AllElements.ToList();

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WardFormsCore.DataModel.PersonRole>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.PersonRoleID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.PersonRoleID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Person.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoleType.RoleType1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.PersonRoleID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThruDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.PersonRoleID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.PersonRoleID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Person.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleType.RoleType1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.PersonRoleID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThruDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PersonRoleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PersonRoleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PersonRoleID })
+        </td>
+    </tr>
+}
+
+</table>

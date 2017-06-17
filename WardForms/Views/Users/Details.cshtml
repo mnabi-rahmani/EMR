@@ -1,0 +1,50 @@
+﻿@model WardFormsCore.DataModel.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonRole.PersonRoleID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonRole.PersonRoleID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enabled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThruDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThruDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonRoleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -15,6 +15,7 @@ namespace WardFormsCore.Repository
             string name);
 
         IEnumerable<AllElement> getallelements();
+        IEnumerable<AllElement> getallelementsfor(int? _datasetfor);
 
 
     }
