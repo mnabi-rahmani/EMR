@@ -45,10 +45,10 @@ namespace WardForms.Controllers
 
         // POST: DataElements/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DEID,DataElement1,DataElementPersian,DataElementPashto,FKDEDataSetClassficationID,SortOrder,DataElementStatus")] DataElement dataElement)
+        public ActionResult Create([Bind(Include = "DEID,DataElement1,ElementType,DataElementPersian,DataElementPashto,FKDEDataSetClassficationID,SortOrder,DataElementStatus")] DataElement dataElement)
         {
             if (ModelState.IsValid)
             {
@@ -79,10 +79,10 @@ namespace WardForms.Controllers
 
         // POST: DataElements/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DEID,DataElement1,DataElementPersian,DataElementPashto,FKDEDataSetClassficationID,SortOrder,DataElementStatus")] DataElement dataElement)
+        public ActionResult Edit([Bind(Include = "DEID,DataElement1,ElementType,DataElementPersian,DataElementPashto,FKDEDataSetClassficationID,SortOrder,DataElementStatus")] DataElement dataElement)
         {
             if (ModelState.IsValid)
             {

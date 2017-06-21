@@ -5,13 +5,12 @@ namespace WardFormsCore.DataModel
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using static WardFormsCore.UICore;
 
     [Table("DataElement")]
     public partial class DataElement
     {
-        public enum ElementTypes {
-            String, Number, Date,Radio,Checkbox
-        }
+       
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DataElement()
         {

@@ -43,6 +43,13 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Stack 5\Packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -173,6 +180,10 @@
     <Compile Include="Migrations\201706211653155_dataelements.Designer.cs">
       <DependentUpon>201706211653155_dataelements.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706211716185_dataelementss.cs" />
+    <Compile Include="Migrations\201706211716185_dataelementss.Designer.cs">
+      <DependentUpon>201706211716185_dataelementss.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DataSetUIconfigRepository.cs" />
@@ -243,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706211653155_dataelements.resx">
       <DependentUpon>201706211653155_dataelements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211716185_dataelementss.resx">
+      <DependentUpon>201706211716185_dataelementss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

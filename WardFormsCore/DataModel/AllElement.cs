@@ -5,6 +5,7 @@ namespace WardFormsCore.DataModel
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using static WardFormsCore.UICore;
 
     public partial class AllElement
     {
@@ -73,6 +74,8 @@ namespace WardFormsCore.DataModel
         public int? FKDSSEDataSetSectionID { get; set; }
 
         public int? FKDSSEDataelementID { get; set; }
+
+        public ElementTypes ElementType { get; set; }
 
         [Key]
         [Column(Order = 6)]
