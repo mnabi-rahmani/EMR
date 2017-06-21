@@ -165,6 +165,14 @@
     <Compile Include="Migrations\201706162318299_services.Designer.cs">
       <DependentUpon>201706162318299_services.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706211648409_dataelement.cs" />
+    <Compile Include="Migrations\201706211648409_dataelement.Designer.cs">
+      <DependentUpon>201706211648409_dataelement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706211653155_dataelements.cs" />
+    <Compile Include="Migrations\201706211653155_dataelements.Designer.cs">
+      <DependentUpon>201706211653155_dataelements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DataSetUIconfigRepository.cs" />
@@ -229,6 +237,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706162318299_services.resx">
       <DependentUpon>201706162318299_services.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211648409_dataelement.resx">
+      <DependentUpon>201706211648409_dataelement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211653155_dataelements.resx">
+      <DependentUpon>201706211653155_dataelements.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

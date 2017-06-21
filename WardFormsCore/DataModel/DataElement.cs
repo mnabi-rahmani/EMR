@@ -9,6 +9,9 @@ namespace WardFormsCore.DataModel
     [Table("DataElement")]
     public partial class DataElement
     {
+        public enum ElementTypes {
+            String, Number, Date,Radio,Checkbox
+        }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DataElement()
         {
@@ -22,6 +25,9 @@ namespace WardFormsCore.DataModel
         [Column("DataElement")]
         [StringLength(150)]
         public string DataElement1 { get; set; }
+
+       
+        public ElementTypes ElementType { get; set; }
 
         [StringLength(350)]
         public string DataElementPersian { get; set; }
