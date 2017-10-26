@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using WardFormsCore.DataModel;
 using WardFormsCore.Repository;
+using System.Web;
 
 
 
@@ -39,33 +40,33 @@ namespace WardFormsCore
             if (elementtype == ElementTypes.String)
             {
 
-                var builder = new TagBuilder("li");
+              //  var builder = new System.Web.Mvc.TagBuilder("li");
 
-                // Create valid id
-              //  builder.GenerateId(id);
+              //  // Create valid id
+              ////  builder.GenerateId(id);
 
-                // Add attributes
-                builder.MergeAttribute("data-row", DataSetUIconfigg.data_row.ToString());
-                builder.MergeAttribute("data-col", DataSetUIconfigg.data_col.ToString());
-                builder.MergeAttribute("data-sizex", DataSetUIconfigg.data_sizex.ToString());
-                builder.MergeAttribute("data-sizey", DataSetUIconfigg.data_sizey.ToString());
+              //  // Add attributes
+              //  builder.MergeAttribute("data-row", DataSetUIconfigg.data_row.ToString());
+              //  builder.MergeAttribute("data-col", DataSetUIconfigg.data_col.ToString());
+              //  builder.MergeAttribute("data-sizex", DataSetUIconfigg.data_sizex.ToString());
+              //  builder.MergeAttribute("data-sizey", DataSetUIconfigg.data_sizey.ToString());
 
-                builder.MergeAttribute("name", DataSetUIconfigg.DSSEId.ToString());
-                builder.AddCssClass("moveables");
+              //  builder.MergeAttribute("name", DataSetUIconfigg.DSSEId.ToString());
+              //  builder.AddCssClass("moveables");
 
-                //   builder.MergeAttribute("alt", alternateText);
-                //   builder.MergeAttributes(new RouteValueDictionary(htmlAttributes));
+              //  //   builder.MergeAttribute("alt", alternateText);
+              //  //   builder.MergeAttributes(new RouteValueDictionary(htmlAttributes));
 
 
 
-                // Render tag
-                return builder.ToString(TagRenderMode.SelfClosing);
+              //  // Render tag
+              //  return builder.ToString(TagRenderMode.SelfClosing);
 
-                //return htmlgenerated = "<li data-row = \'" + DataSetUIconfigg.data_row + "\'" +
-                //                       "data-col = \'" + DataSetUIconfigg.data_col + "\'" +
-                //                       "data-sizex = \'" + DataSetUIconfigg.data_sizex + "\'" +
-                //                       " data-sizey = \'" + DataSetUIconfigg.data_sizey + "\'" +
-                //                       " class='moveables' name=\'" + DataSetUIconfigg.DSSEId + "\'>";
+              //  //return htmlgenerated = "<li data-row = \'" + DataSetUIconfigg.data_row + "\'" +
+              //  //                       "data-col = \'" + DataSetUIconfigg.data_col + "\'" +
+              //  //                       "data-sizex = \'" + DataSetUIconfigg.data_sizex + "\'" +
+              //  //                       " data-sizey = \'" + DataSetUIconfigg.data_sizey + "\'" +
+              //  //                       " class='moveables' name=\'" + DataSetUIconfigg.DSSEId + "\'>";
 
 
                
