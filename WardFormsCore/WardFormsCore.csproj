@@ -59,55 +59,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModel\AllElement.cs" />
-    <Compile Include="DataModel\allelementsv.cs" />
-    <Compile Include="DataModel\DataClassfication.cs" />
-    <Compile Include="DataModel\DataElement.cs" />
-    <Compile Include="DataModel\DataSetSection.cs" />
-    <Compile Include="DataModel\DataSetSectionElement.cs" />
-    <Compile Include="DataModel\DataSetTbl.cs" />
-    <Compile Include="DataModel\DataSetUIconfig.cs" />
-    <Compile Include="DataModel\District.cs" />
-    <Compile Include="DataModel\ElementValue.cs" />
-    <Compile Include="DataModel\Employee.cs" />
-    <Compile Include="DataModel\Facility.cs" />
-    <Compile Include="DataModel\FacilityContactMechanisim.cs" />
-    <Compile Include="DataModel\FacilityContactMechanisimPurpose.cs" />
-    <Compile Include="DataModel\FacilityContent.cs" />
-    <Compile Include="DataModel\FacilityGroup.cs" />
-    <Compile Include="DataModel\FacilityGroupMember.cs" />
-    <Compile Include="DataModel\FacilityGroupRole.cs" />
-    <Compile Include="DataModel\FacilityGroupType.cs" />
-    <Compile Include="DataModel\FacilityLocationGeoPiont.cs" />
-    <Compile Include="DataModel\FacilityParty.cs" />
-    <Compile Include="DataModel\FacilityRole.cs" />
-    <Compile Include="DataModel\FacilityType.cs" />
-    <Compile Include="DataModel\Organization.cs" />
-    <Compile Include="DataModel\Party.cs" />
-    <Compile Include="DataModel\PartyAddress.cs" />
-    <Compile Include="DataModel\PartyGroup.cs" />
-    <Compile Include="DataModel\PartyRelationship.cs" />
-    <Compile Include="DataModel\PartyRelationshipType.cs" />
-    <Compile Include="DataModel\PartySkill.cs" />
-    <Compile Include="DataModel\PartyType.cs" />
-    <Compile Include="DataModel\Patient.cs" />
-    <Compile Include="DataModel\PatientVisit.cs" />
-    <Compile Include="DataModel\Person.cs" />
-    <Compile Include="DataModel\PersonAddress.cs" />
-    <Compile Include="DataModel\PersonEducation.cs" />
-    <Compile Include="DataModel\PersonOccupation.cs" />
-    <Compile Include="DataModel\PersonQualification.cs" />
-    <Compile Include="DataModel\PersonQualificationType.cs" />
-    <Compile Include="DataModel\PersonRole.cs" />
-    <Compile Include="DataModel\Province.cs" />
-    <Compile Include="DataModel\PurposeType.cs" />
-    <Compile Include="DataModel\Refer.cs" />
-    <Compile Include="DataModel\RoleType.cs" />
-    <Compile Include="DataModel\Service.cs" />
-    <Compile Include="DataModel\SkillType.cs" />
-    <Compile Include="DataModel\sysdiagram.cs" />
-    <Compile Include="DataModel\User.cs" />
-    <Compile Include="DataModel\WardFormsCoreDataModel.cs" />
+    <Compile Include="UIModel\AllElement.cs" />
+    <Compile Include="UIModel\allelementsv.cs" />
+    <Compile Include="UIModel\DataClassfication.cs" />
+    <Compile Include="UIModel\DataElement.cs" />
+    <Compile Include="UIModel\DataSetSection.cs" />
+    <Compile Include="UIModel\DataSetSectionElement.cs" />
+    <Compile Include="UIModel\DataSetTbl.cs" />
+    <Compile Include="UIModel\DataSetUIconfig.cs" />
+    <Compile Include="UIModel\District.cs" />
+    <Compile Include="UIModel\ElementValue.cs" />
+    <Compile Include="UIModel\Employee.cs" />
+    <Compile Include="UIModel\Facility.cs" />
+    <Compile Include="UIModel\FacilityContactMechanisim.cs" />
+    <Compile Include="UIModel\FacilityContactMechanisimPurpose.cs" />
+    <Compile Include="UIModel\FacilityContent.cs" />
+    <Compile Include="UIModel\FacilityGroup.cs" />
+    <Compile Include="UIModel\FacilityGroupMember.cs" />
+    <Compile Include="UIModel\FacilityGroupRole.cs" />
+    <Compile Include="UIModel\FacilityGroupType.cs" />
+    <Compile Include="UIModel\FacilityLocationGeoPiont.cs" />
+    <Compile Include="UIModel\FacilityParty.cs" />
+    <Compile Include="UIModel\FacilityRole.cs" />
+    <Compile Include="UIModel\FacilityType.cs" />
+    <Compile Include="UIModel\Organization.cs" />
+    <Compile Include="UIModel\Party.cs" />
+    <Compile Include="UIModel\PartyAddress.cs" />
+    <Compile Include="UIModel\PartyGroup.cs" />
+    <Compile Include="UIModel\PartyRelationship.cs" />
+    <Compile Include="UIModel\PartyRelationshipType.cs" />
+    <Compile Include="UIModel\PartySkill.cs" />
+    <Compile Include="UIModel\PartyType.cs" />
+    <Compile Include="UIModel\Patient.cs" />
+    <Compile Include="UIModel\PatientVisit.cs" />
+    <Compile Include="UIModel\Person.cs" />
+    <Compile Include="UIModel\PersonAddress.cs" />
+    <Compile Include="UIModel\PersonEducation.cs" />
+    <Compile Include="UIModel\PersonOccupation.cs" />
+    <Compile Include="UIModel\PersonQualification.cs" />
+    <Compile Include="UIModel\PersonQualificationType.cs" />
+    <Compile Include="UIModel\PersonRole.cs" />
+    <Compile Include="UIModel\Province.cs" />
+    <Compile Include="UIModel\PurposeType.cs" />
+    <Compile Include="UIModel\Refer.cs" />
+    <Compile Include="UIModel\RoleType.cs" />
+    <Compile Include="UIModel\Service.cs" />
+    <Compile Include="UIModel\SkillType.cs" />
+    <Compile Include="UIModel\sysdiagram.cs" />
+    <Compile Include="UIModel\User.cs" />
+    <Compile Include="UIModel\WardFormsCoreDataModel.cs" />
     <Compile Include="GeneralCore.cs" />
     <Compile Include="Migrations\201706061524569_InitialCreate.cs" />
     <Compile Include="Migrations\201706061524569_InitialCreate.Designer.cs">
@@ -260,10 +260,7 @@
       <DependentUpon>201706211716185_dataelementss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="temp\" />
-    <Folder Include="Vie\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
