@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -246,10 +248,12 @@
         <!-- /.dropdown-alerts -->
     </li>
     <!-- /.dropdown -->*@
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <li class="dropdown" > 
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> 
+                        @System.Web.HttpContext.Current.User.Identity.Name
+                   
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
+                    </a> 
                     <ul class="dropdown-menu dropdown-user">
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -259,7 +263,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="/"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="/Account/Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
