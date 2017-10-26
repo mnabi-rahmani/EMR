@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201706161752372_test.Designer.cs">
       <DependentUpon>201706161752372_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710261038114_registernameadded.cs" />
+    <Compile Include="Migrations\201710261038114_registernameadded.Designer.cs">
+      <DependentUpon>201710261038114_registernameadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -518,6 +522,7 @@
     <Content Include="Views\PurposeTypes\Edit.cshtml" />
     <Content Include="Views\PurposeTypes\Index.cshtml" />
     <Content Include="Views\Services\servicedetail.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -547,6 +552,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706161752372_test.resx">
       <DependentUpon>201706161752372_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710261038114_registernameadded.resx">
+      <DependentUpon>201710261038114_registernameadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
