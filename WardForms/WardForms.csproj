@@ -52,6 +52,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.98.1\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.98.1\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.105.2\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -182,27 +191,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AllElementsController.cs" />
-    <Compile Include="Controllers\DataElementsController.cs" />
-    <Compile Include="Controllers\DataSetsController.cs" />
-    <Compile Include="Controllers\DataSetSectionElementsController.cs" />
-    <Compile Include="Controllers\DataSetSectionsController.cs" />
-    <Compile Include="Controllers\ElementValuesController.cs" />
-    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PartiesController.cs" />
-    <Compile Include="Controllers\PartyTypesController.cs" />
-    <Compile Include="Controllers\PatientsController.cs" />
-    <Compile Include="Controllers\PatientVisitsController.cs" />
-    <Compile Include="Controllers\PersonController.cs" />
-    <Compile Include="Controllers\PersonRolesController.cs" />
-    <Compile Include="Controllers\PurposeTypesController.cs" />
-    <Compile Include="Controllers\RoleTypesController.cs" />
-    <Compile Include="Controllers\ServicesController.cs" />
-    <Compile Include="Controllers\SkillTypesController.cs" />
     <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,11 +213,21 @@
     <Compile Include="Migrations\201710261038114_registernameadded.Designer.cs">
       <DependentUpon>201710261038114_registernameadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710310707118_PersonAndEmployeeAdded.cs" />
+    <Compile Include="Migrations\201710310707118_PersonAndEmployeeAdded.Designer.cs">
+      <DependentUpon>201710310707118_PersonAndEmployeeAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710310709096_PersonAndEmployeeAddedv1.cs" />
+    <Compile Include="Migrations\201710310709096_PersonAndEmployeeAddedv1.Designer.cs">
+      <DependentUpon>201710310709096_PersonAndEmployeeAddedv1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -382,6 +383,7 @@
     <Content Include="Content\SbAdminTheme\vendor\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\SbAdminTheme\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\SbAdminTheme\vendor\font-awesome\scss\_variables.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -395,7 +397,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -430,11 +434,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
-    <Content Include="Views\SkillTypes\Create.cshtml" />
-    <Content Include="Views\SkillTypes\Delete.cshtml" />
-    <Content Include="Views\SkillTypes\Details.cshtml" />
-    <Content Include="Views\SkillTypes\Edit.cshtml" />
-    <Content Include="Views\SkillTypes\Index.cshtml" />
     <Content Include="Views\DataSets\Create.cshtml" />
     <Content Include="Views\DataSets\Delete.cshtml" />
     <Content Include="Views\DataSets\Details.cshtml" />
@@ -455,72 +454,17 @@
     <Content Include="Views\DataSetSectionElements\Details.cshtml" />
     <Content Include="Views\DataSetSectionElements\Edit.cshtml" />
     <Content Include="Views\DataSetSectionElements\Index.cshtml" />
-    <Content Include="Views\AllElements\Create.cshtml" />
-    <Content Include="Views\AllElements\Delete.cshtml" />
-    <Content Include="Views\AllElements\Details.cshtml" />
-    <Content Include="Views\AllElements\Edit.cshtml" />
-    <Content Include="Views\AllElements\Index.cshtml" />
     <Content Include="Views\ElementValues\Create.cshtml" />
     <Content Include="Views\ElementValues\Delete.cshtml" />
     <Content Include="Views\ElementValues\Details.cshtml" />
     <Content Include="Views\ElementValues\Edit.cshtml" />
     <Content Include="Views\ElementValues\Index.cshtml" />
     <Content Include="Views\Shared\_SbAdminTheme.cshtml" />
-    <Content Include="Views\Parties\Create.cshtml" />
-    <Content Include="Views\Parties\Delete.cshtml" />
-    <Content Include="Views\Parties\Details.cshtml" />
-    <Content Include="Views\Parties\Edit.cshtml" />
-    <Content Include="Views\Parties\Index.cshtml" />
-    <Content Include="Views\PartyTypes\Create.cshtml" />
-    <Content Include="Views\PartyTypes\Delete.cshtml" />
-    <Content Include="Views\PartyTypes\Details.cshtml" />
-    <Content Include="Views\PartyTypes\Edit.cshtml" />
-    <Content Include="Views\PartyTypes\Index.cshtml" />
-    <Content Include="Views\Person\Create.cshtml" />
-    <Content Include="Views\Person\Delete.cshtml" />
-    <Content Include="Views\Person\Details.cshtml" />
-    <Content Include="Views\Person\Edit.cshtml" />
-    <Content Include="Views\Person\Index.cshtml" />
-    <Content Include="Views\RoleTypes\Create.cshtml" />
-    <Content Include="Views\RoleTypes\Delete.cshtml" />
-    <Content Include="Views\RoleTypes\Details.cshtml" />
-    <Content Include="Views\RoleTypes\Edit.cshtml" />
-    <Content Include="Views\RoleTypes\Index.cshtml" />
-    <Content Include="Views\PersonRoles\Create.cshtml" />
-    <Content Include="Views\PersonRoles\Delete.cshtml" />
-    <Content Include="Views\PersonRoles\Details.cshtml" />
-    <Content Include="Views\PersonRoles\Edit.cshtml" />
-    <Content Include="Views\PersonRoles\Index.cshtml" />
-    <Content Include="Views\Patients\Create.cshtml" />
-    <Content Include="Views\Patients\Delete.cshtml" />
-    <Content Include="Views\Patients\Details.cshtml" />
-    <Content Include="Views\Patients\Edit.cshtml" />
-    <Content Include="Views\Patients\Index.cshtml" />
-    <Content Include="Views\Employees\Create.cshtml" />
-    <Content Include="Views\Employees\Delete.cshtml" />
-    <Content Include="Views\Employees\Details.cshtml" />
-    <Content Include="Views\Employees\Edit.cshtml" />
-    <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\PatientVisits\Create.cshtml" />
-    <Content Include="Views\PatientVisits\Delete.cshtml" />
-    <Content Include="Views\PatientVisits\Details.cshtml" />
-    <Content Include="Views\PatientVisits\Edit.cshtml" />
-    <Content Include="Views\PatientVisits\Index.cshtml" />
     <Content Include="Views\Services\Create.cshtml" />
     <Content Include="Views\Services\Delete.cshtml" />
     <Content Include="Views\Services\Details.cshtml" />
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
-    <Content Include="Views\PurposeTypes\Create.cshtml" />
-    <Content Include="Views\PurposeTypes\Delete.cshtml" />
-    <Content Include="Views\PurposeTypes\Details.cshtml" />
-    <Content Include="Views\PurposeTypes\Edit.cshtml" />
-    <Content Include="Views\PurposeTypes\Index.cshtml" />
     <Content Include="Views\Services\servicedetail.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
@@ -555,6 +499,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710261038114_registernameadded.resx">
       <DependentUpon>201710261038114_registernameadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710310707118_PersonAndEmployeeAdded.resx">
+      <DependentUpon>201710310707118_PersonAndEmployeeAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710310709096_PersonAndEmployeeAddedv1.resx">
+      <DependentUpon>201710310709096_PersonAndEmployeeAddedv1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -591,7 +541,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.98.1\build\net451\System.Data.SQLite.Core.targets'))" />
   </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.98.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net451\System.Data.SQLite.Core.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

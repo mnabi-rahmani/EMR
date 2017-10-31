@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,9 @@ namespace WardForms.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        
+        public DbSet<Person> Persons { get; set;  }
+        public DbSet<Employee> Employees { get; set; }
 
         public static ApplicationDbContext Create()
         {

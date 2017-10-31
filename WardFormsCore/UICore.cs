@@ -1,7 +1,5 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using WardFormsCore.DataModel;
-using WardFormsCore.Repository;
 using System.Web;
 
 
@@ -25,20 +23,20 @@ namespace WardFormsCore
 
             public static string GenerateUIList(int DSSEID, ElementTypes elementtype)
        {
-            UnitOfWork UnitOfWork = new UnitOfWork(new WardFormsCoreDataModel());
+            //UnitOfWork UnitOfWork = new UnitOfWork(new WardFormsCoreDataModel());
 
-            DataSetUIconfig DataSetUIconfigg = UnitOfWork.DataSetUIconfigs.Find(DataSetUIconfig => DataSetUIconfig.DSSEId == DSSEID).FirstOrDefault();
+            //DataSetUIconfig DataSetUIconfigg = UnitOfWork.DataSetUIconfigs.Find(DataSetUIconfig => DataSetUIconfig.DSSEId == DSSEID).FirstOrDefault();
 
             string htmlgenerated;
 
-            if (DataSetUIconfigg == null)
-            {
-                return "<li data-row='1' data-col='1' data-sizex='1' data-sizey='1' class='moveables' name=\'" + DSSEID + "\' >";
+            //if (DataSetUIconfigg == null)
+            //{
+            //    return "<li data-row='1' data-col='1' data-sizex='1' data-sizey='1' class='moveables' name=\'" + DSSEID + "\' >";
 
 
-            }
-            if (elementtype == ElementTypes.String)
-            {
+            //}
+            //if (elementtype == ElementTypes.String)
+      //      {
 
               //  var builder = new System.Web.Mvc.TagBuilder("li");
 
@@ -74,27 +72,27 @@ namespace WardFormsCore
                    
 
 
-            }
-            else if (elementtype == ElementTypes.Date)
-            {
+            //}
+            //else if (elementtype == ElementTypes.Date)
+            //{
 
 
-            }
-            else if (elementtype == ElementTypes.Number)
-            {
+            //}
+            //else if (elementtype == ElementTypes.Number)
+            //{
 
 
-            }
-            else if (elementtype == ElementTypes.Checkbox)
-            {
+            //}
+            //else if (elementtype == ElementTypes.Checkbox)
+            //{
 
 
-            }
-            else if (elementtype == ElementTypes.Radio)
-            {
+            //}
+            //else if (elementtype == ElementTypes.Radio)
+            //{
 
 
-            }
+            //}
             
             return "";
 
