@@ -194,6 +194,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Core\GeneralCore.cs" />
+    <Compile Include="Core\UICore.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -480,12 +482,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WardFormsCore\WardFormsCore.csproj">
-      <Project>{7ebfc398-9c6d-4d27-a2ec-0fd4e37c07d1}</Project>
-      <Name>WardFormsCore</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706061635242_abc.resx">
