@@ -11,9 +11,9 @@ namespace WardForms.Repository
     {
         ApplicationDbContext ApplicationDbContext = new ApplicationDbContext();
 
-        public PersonRepository(ApplicationDbContext _ApplicationDbContext) : base(_ApplicationDbContext)
+        public PersonRepository( ) : base()
         {
-            ApplicationDbContext = _ApplicationDbContext;
+            
         }
 
 

@@ -21,10 +21,8 @@ namespace WardForms.Repository
             ApplicationDbContext.SaveChanges();
         }
 
-        public Repository(ApplicationDbContext _ApplicationDbContext)
+        public Repository( )
        {
-            ApplicationDbContext = _ApplicationDbContext;
-
 
        }
 

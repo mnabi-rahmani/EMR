@@ -14,8 +14,8 @@ namespace WardForms.Controllers
     
     public class EmployeesController : Controller
     {
-         static  ApplicationDbContext db = new ApplicationDbContext();
-        EmployeesRepository EmployeeRepo = new EmployeesRepository(db);
+        // static  ApplicationDbContext db = new ApplicationDbContext();
+        EmployeesRepository EmployeeRepo = new EmployeesRepository();
         EmployeeViewModel employeeViewModel = new EmployeeViewModel();
 
 
@@ -101,39 +101,42 @@ namespace WardForms.Controllers
             return View(employeeViewModel);
         }
 
-        //// GET: Employees/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    EmployeeViewModel employeeViewModel = db.EmployeeViewModels.Find(id);
-        //    if (employeeViewModel == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(employeeViewModel);
-        //}
+        // GET: Employees/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //    EmployeeViewModel employeeViewModel = db.EmployeeViewModels.Find(id);
 
-        //// POST: Employees/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    EmployeeViewModel employeeViewModel = db.EmployeeViewModels.Find(id);
-        //    db.EmployeeViewModels.Remove(employeeViewModel);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+            employeeViewModel =  EmployeeRepo.GetEmployee(id);
+            if (employeeViewModel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employeeViewModel);
+        }
+
+        // POST: Employees/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            // EmployeeViewModel employeeViewModel = db.EmployeeViewModels.Find(id);
+            EmployeeRepo.RemoveEmployee(id);
+           // db.EmployeeViewModels.Remove(employeeViewModel);
+           // db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+         //   if (disposing)
+          //  {
+                //db.Dispose();
+         //   }
+           // base.Dispose(disposing);
         }
     }
 }

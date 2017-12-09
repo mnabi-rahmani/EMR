@@ -12,10 +12,10 @@ namespace WardForms.Repository
     public class EmployeesRepository : Repository<Employee>
     {
 
-        ApplicationDbContext ApplicationDbContext = new ApplicationDbContext();
-        public EmployeesRepository(ApplicationDbContext _ApplicationDbContext) : base(_ApplicationDbContext)
+        ApplicationDbContext Context = new ApplicationDbContext();
+        public EmployeesRepository() 
         {
-            ApplicationDbContext = _ApplicationDbContext;
+             
         }
 
         public void AddEmployee(EmployeeViewModel employeeViewModel)
@@ -32,63 +32,61 @@ namespace WardForms.Repository
             newperson.BloodGroup = employeeViewModel.BloodGroup;
             newperson.TazkiraNumber = employeeViewModel.TazkiraNumber;
             newperson.PassportNumber = employeeViewModel.PassportNumber;
-            ApplicationDbContext.Persons.Add(newperson);
-            ApplicationDbContext.SaveChanges();
+            Context.Persons.Add(newperson);
+            Context.SaveChanges();
             int personid = newperson.PersonID;
 
             //Add Employee by getting ID from newly created Person
             Employee newemployee = new Employee();
             newemployee.Person = newperson;
             newemployee.EmployeeType = employeeViewModel.EmployeeType;
-            ApplicationDbContext.Employees.Add(newemployee);
-            ApplicationDbContext.SaveChanges();
+            Context.Employees.Add(newemployee);
+            Context.SaveChanges();
 
 
         }
 
         public List<EmployeeViewModel> GetAllEmployees()
         {
-            using (ApplicationDbContext appcontext = new ApplicationDbContext())
+            // using (ApplicationDbContext appcontext = new ApplicationDbContext())
+            //   {
+            List<EmployeeViewModel> employeeslist = new List<EmployeeViewModel>();
+
+            var list = Context.Employees
+                .Include(a => a.Person)
+                .ToList();
+
+            foreach (var item in list)
             {
-                List<EmployeeViewModel> employeeslist = new List<EmployeeViewModel>();
+                EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+                employeeViewModel.FirstName = item.Person.FirstName;
+                employeeViewModel.MiddleName = item.Person.MiddleName;
+                employeeViewModel.LastName = item.Person.LastName;
+                employeeViewModel.FatherName = item.Person.FatherName;
+                employeeViewModel.Gender = item.Person.Gender;
+                employeeViewModel.MaritalStatus = item.Person.MaritalStatus;
+                employeeViewModel.DateOfBirth = item.Person.DateOfBirth;
+                employeeViewModel.BloodGroup = item.Person.BloodGroup;
+                employeeViewModel.TazkiraNumber = item.Person.TazkiraNumber;
+                employeeViewModel.PassportNumber = item.Person.PassportNumber;
+                employeeViewModel.PersonID = item.Person.PersonID;
+                employeeViewModel.EmployeeID = item.EmployeeID;
+                employeeViewModel.EmployeeType = item.EmployeeType;
+                employeeslist.Add(employeeViewModel);
 
-                var list = appcontext.Employees
-                    .Include(a => a.Person)
-                    .ToList();
-
-                foreach (var item in list)
-                {
-                    EmployeeViewModel employeeViewModel = new EmployeeViewModel();
-                    employeeViewModel.FirstName = item.Person.FirstName;
-                    employeeViewModel.MiddleName = item.Person.MiddleName;
-                    employeeViewModel.LastName = item.Person.LastName;
-                    employeeViewModel.FatherName = item.Person.FatherName;
-                    employeeViewModel.Gender = item.Person.Gender;
-                    employeeViewModel.MaritalStatus = item.Person.MaritalStatus;
-                    employeeViewModel.DateOfBirth = item.Person.DateOfBirth;
-                    employeeViewModel.BloodGroup = item.Person.BloodGroup;
-                    employeeViewModel.TazkiraNumber = item.Person.TazkiraNumber;
-                    employeeViewModel.PassportNumber = item.Person.PassportNumber;
-                    employeeViewModel.PersonID = item.Person.PersonID;
-                    employeeViewModel.EmployeeID = item.EmployeeID;
-                    employeeViewModel.EmployeeType = item.EmployeeType;
-                    employeeslist.Add(employeeViewModel);
-
-                }
-
-                return employeeslist;
             }
+
+            return employeeslist;
         }
+
+
         public EmployeeViewModel GetEmployee(int? id)
         {
+            EmployeeViewModel employee = new EmployeeViewModel();
 
-            using (ApplicationDbContext appcontext = new ApplicationDbContext())
-            { 
-                EmployeeViewModel employee = new EmployeeViewModel();
-
-            var list = appcontext.Employees
+            var list = Context.Employees
                .Include(a => a.Person)
-               .Where(b=>b.EmployeeID==id)
+               .Where(b => b.EmployeeID == id)
                .ToList();
 
             foreach (var item in list)
@@ -104,28 +102,25 @@ namespace WardForms.Repository
                 employeeViewModel.BloodGroup = item.Person.BloodGroup;
                 employeeViewModel.TazkiraNumber = item.Person.TazkiraNumber;
                 employeeViewModel.PassportNumber = item.Person.PassportNumber;
-
+                employeeViewModel.PersonID = item.Person.PersonID;
                 employeeViewModel.EmployeeID = item.EmployeeID;
                 employeeViewModel.EmployeeType = item.EmployeeType;
-                employee=employeeViewModel;
+                employee = employeeViewModel;
 
             }
-           
+
             return employee;
-            }
-        }
-        
 
-             public void UpdateEmployee(EmployeeViewModel employeeViewModel)
+        }
+
+
+        public void UpdateEmployee(EmployeeViewModel employeeViewModel)
         {
             //Add Person First
-            using (ApplicationDbContext context = new ApplicationDbContext())
-            {
 
-                context.Persons
 
-            }
-                newperson.FirstName = employeeViewModel.FirstName;
+            var newperson = Context.Persons.Find(employeeViewModel.PersonID);
+            newperson.FirstName = employeeViewModel.FirstName;
             newperson.MiddleName = employeeViewModel.MiddleName;
             newperson.LastName = employeeViewModel.LastName;
             newperson.FatherName = employeeViewModel.FatherName;
@@ -135,24 +130,62 @@ namespace WardForms.Repository
             newperson.BloodGroup = employeeViewModel.BloodGroup;
             newperson.TazkiraNumber = employeeViewModel.TazkiraNumber;
             newperson.PassportNumber = employeeViewModel.PassportNumber;
-            ApplicationDbContext.Persons.Add(newperson);
-            ApplicationDbContext.SaveChanges();
-            int personid = newperson.PersonID;
 
-            //Add Employee by getting ID from newly created Person
-            Employee newemployee = new Employee();
-            newemployee.Person = newperson;
+
+            var newemployee = Context.Employees.Find(employeeViewModel.EmployeeID);
+
             newemployee.EmployeeType = employeeViewModel.EmployeeType;
-            ApplicationDbContext.Employees.Add(newemployee);
-            ApplicationDbContext.SaveChanges();
 
+            Context.SaveChanges();
 
         }
+        public void RemoveEmployee(int id)
+        {
+            var list = Context.Employees
+               .Include(a => a.Person)
+               .Where(b => b.EmployeeID == id)
+               .ToList();
+
+            foreach (var item in list)
+            {
+                Employee employee = Context.Employees.Find(item.EmployeeID);
+                Person person = Context.Persons.Find(item.Person.PersonID);
+
+                //    var entry = Context.Entry(employee);
+                //   if (entry.State == EntityState.Detached)
+                //     Context.Employees.Attach(employee);
+                Context.Employees.Remove(employee);
 
 
 
+          
+                if (person.PersonID != 0)
+                {
+                   // var Personentry = Context.Entry(person);
+                 //   if (Personentry.State == EntityState.Detached)
+                 //       Context.Persons.Attach(person);
+                    Context.Persons.Remove(person);
+                }
+          
 
+                
+                Context.SaveChanges();
 
+            }
+        
+           
+            }
 
+           
+
+        
     }
 }
+
+
+
+
+
+
+    
+
