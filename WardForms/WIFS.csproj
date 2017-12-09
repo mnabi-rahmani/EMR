@@ -194,6 +194,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Core\GeneralCore.cs" />
     <Compile Include="Core\UICore.cs" />
@@ -228,6 +229,10 @@
     <Compile Include="Migrations\201712070613109_emloyeecontrollerr.Designer.cs">
       <DependentUpon>201712070613109_emloyeecontrollerr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712091834422_patientEntityAdded.cs" />
+    <Compile Include="Migrations\201712091834422_patientEntityAdded.Designer.cs">
+      <DependentUpon>201712091834422_patientEntityAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -235,10 +240,13 @@
     <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\PatientViewModel.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\EmployeesRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\PatientsRepository.cs" />
     <Compile Include="Repository\PersonRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Startup.cs" />
@@ -446,44 +454,18 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
-    <Content Include="Views\DataSets\Create.cshtml" />
-    <Content Include="Views\DataSets\Delete.cshtml" />
-    <Content Include="Views\DataSets\Details.cshtml" />
-    <Content Include="Views\DataSets\Edit.cshtml" />
-    <Content Include="Views\DataSets\Index.cshtml" />
-    <Content Include="Views\DataSetSections\Create.cshtml" />
-    <Content Include="Views\DataSetSections\Delete.cshtml" />
-    <Content Include="Views\DataSetSections\Details.cshtml" />
-    <Content Include="Views\DataSetSections\Edit.cshtml" />
-    <Content Include="Views\DataSetSections\Index.cshtml" />
-    <Content Include="Views\DataElements\Create.cshtml" />
-    <Content Include="Views\DataElements\Delete.cshtml" />
-    <Content Include="Views\DataElements\Details.cshtml" />
-    <Content Include="Views\DataElements\Edit.cshtml" />
-    <Content Include="Views\DataElements\Index.cshtml" />
-    <Content Include="Views\DataSetSectionElements\Create.cshtml" />
-    <Content Include="Views\DataSetSectionElements\Delete.cshtml" />
-    <Content Include="Views\DataSetSectionElements\Details.cshtml" />
-    <Content Include="Views\DataSetSectionElements\Edit.cshtml" />
-    <Content Include="Views\DataSetSectionElements\Index.cshtml" />
-    <Content Include="Views\ElementValues\Create.cshtml" />
-    <Content Include="Views\ElementValues\Delete.cshtml" />
-    <Content Include="Views\ElementValues\Details.cshtml" />
-    <Content Include="Views\ElementValues\Edit.cshtml" />
-    <Content Include="Views\ElementValues\Index.cshtml" />
     <Content Include="Views\Shared\_SbAdminTheme.cshtml" />
-    <Content Include="Views\Services\Create.cshtml" />
-    <Content Include="Views\Services\Delete.cshtml" />
-    <Content Include="Views\Services\Details.cshtml" />
-    <Content Include="Views\Services\Edit.cshtml" />
-    <Content Include="Views\Services\Index.cshtml" />
-    <Content Include="Views\Services\servicedetail.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Patients\Create.cshtml" />
+    <Content Include="Views\Patients\Delete.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -519,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712070613109_emloyeecontrollerr.resx">
       <DependentUpon>201712070613109_emloyeecontrollerr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712091834422_patientEntityAdded.resx">
+      <DependentUpon>201712091834422_patientEntityAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

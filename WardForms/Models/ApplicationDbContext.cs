@@ -16,12 +16,12 @@ namespace WardForms.Models
         
         public DbSet<Person> Persons { get; set;  }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Patient> Patients { get; set; }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
 
-       
-    }
+        }
 }

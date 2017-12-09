@@ -11,132 +11,119 @@ using WardForms.Repository;
 
 namespace WardForms.Controllers
 {
-    
-    public class EmployeesController : Controller
+    public class PatientsController : Controller
     {
-       
-        EmployeesRepository EmployeeRepo = new EmployeesRepository();
-        EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+        PatientsRepository PatientRepo = new PatientsRepository();
+        PatientViewModel patientViewModel = new PatientViewModel();
 
 
-        //GET: Employees
+        // GET: Patients
         public ActionResult Index()
         {
-
-            return View(EmployeeRepo.GetAllEmployees());
+            return View(PatientRepo.GetAllPatients());
         }
 
-        // GET: Employees/Details/5
+        // GET: Patients/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            employeeViewModel =  EmployeeRepo.GetEmployee(id);
-
-            if (employeeViewModel == null)
+            patientViewModel = PatientRepo.GetPatient(id);
+            if (patientViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(employeeViewModel);
+            return View(patientViewModel);
         }
 
-        // GET: Employees/Create
+        // GET: Patients/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Employees/Create
+        // POST: Patients/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonID,EmployeeID,EmployeeType,FirstName,MiddleName,LastName,FatherName,Gender,MaritalStatus,DateOfBirth,BloodGroup,TazkiraNumber,PassportNumber")] EmployeeViewModel employeeViewModel)
+        public ActionResult Create([Bind(Include = "PersonID,PatientID,PatientType,FirstName,MiddleName,LastName,FatherName,Gender,MaritalStatus,DateOfBirth,BloodGroup,TazkiraNumber,PassportNumber")] PatientViewModel patientViewModel)
         {
             if (ModelState.IsValid)
             {
-                EmployeeRepo.AddEmployee(employeeViewModel);
+                PatientRepo.AddPatient(patientViewModel);
 
 
-           
                 return RedirectToAction("Index");
             }
 
-            return View(employeeViewModel);
+            return View(patientViewModel);
         }
 
-        // GET: Employees/Edit/5
+        // GET: Patients/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            employeeViewModel = EmployeeRepo.GetEmployee(id);
-            if (employeeViewModel == null)
+            patientViewModel =PatientRepo.GetPatient(id);
+            if (patientViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(employeeViewModel);
+            return View(patientViewModel);
         }
 
-        // POST: Employees/Edit/5
+        // POST: Patients/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonID,EmployeeID,EmployeeType,FirstName,MiddleName,LastName,FatherName,Gender,MaritalStatus,DateOfBirth,BloodGroup,TazkiraNumber,PassportNumber")] EmployeeViewModel employeeViewModel)
+        public ActionResult Edit([Bind(Include = "PersonID,PatientID,PatientType,FirstName,MiddleName,LastName,FatherName,Gender,MaritalStatus,DateOfBirth,BloodGroup,TazkiraNumber,PassportNumber")] PatientViewModel patientViewModel)
         {
             if (ModelState.IsValid)
             {
+                PatientRepo.UpdatePatient(patientViewModel);
 
-                EmployeeRepo.UpdateEmployee(employeeViewModel);
-
-              //  db.Entry(employeeViewModel).State = EntityState.Modified;
-              //  db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(employeeViewModel);
+            return View(patientViewModel);
         }
 
-        // GET: Employees/Delete/5
+        // GET: Patients/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //    EmployeeViewModel employeeViewModel = db.EmployeeViewModels.Find(id);
-
-            employeeViewModel =  EmployeeRepo.GetEmployee(id);
-            if (employeeViewModel == null)
+            patientViewModel = PatientRepo.GetPatient(id);
+            if (patientViewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(employeeViewModel);
+            return View(patientViewModel);
         }
 
-        // POST: Employees/Delete/5
+        // POST: Patients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            // EmployeeViewModel employeeViewModel = db.EmployeeViewModels.Find(id);
-            EmployeeRepo.RemoveEmployee(id);
-           // db.EmployeeViewModels.Remove(employeeViewModel);
-           // db.SaveChanges();
+            //PatientViewModel patientViewModel = db.PatientViewModels.Find(id);
+            //db.PatientViewModels.Remove(patientViewModel);
+            //db.SaveChanges();
+            PatientRepo.RemovePatient(id);
+
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-         //   if (disposing)
-          //  {
-                //db.Dispose();
-         //   }
-           // base.Dispose(disposing);
+           
         }
     }
 }
