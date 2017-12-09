@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -233,17 +234,36 @@
     <Compile Include="Migrations\201712091834422_patientEntityAdded.Designer.cs">
       <DependentUpon>201712091834422_patientEntityAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712091916242_FacilityandRelatedEntitiesAdded.cs" />
+    <Compile Include="Migrations\201712091916242_FacilityandRelatedEntitiesAdded.Designer.cs">
+      <DependentUpon>201712091916242_FacilityandRelatedEntitiesAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\District.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeViewModel.cs" />
+    <Compile Include="Models\Facility.cs" />
+    <Compile Include="Models\FacilityContactMechanisim.cs" />
+    <Compile Include="Models\FacilityContactMechanisimPurpose.cs" />
+    <Compile Include="Models\FacilityContent.cs" />
+    <Compile Include="Models\FacilityGroup.cs" />
+    <Compile Include="Models\FacilityGroupMember.cs" />
+    <Compile Include="Models\FacilityGroupRole.cs" />
+    <Compile Include="Models\FacilityGroupType.cs" />
+    <Compile Include="Models\FacilityLocationGeoPiont.cs" />
+    <Compile Include="Models\FacilityParty.cs" />
+    <Compile Include="Models\FacilityRole.cs" />
+    <Compile Include="Models\FacilityType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PatientViewModel.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Province.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DistrictsRepository.cs" />
     <Compile Include="Repository\EmployeesRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\PatientsRepository.cs" />
@@ -466,6 +486,11 @@
     <Content Include="Views\Patients\Details.cshtml" />
     <Content Include="Views\Patients\Edit.cshtml" />
     <Content Include="Views\Patients\Index.cshtml" />
+    <Content Include="Views\Districts\Create.cshtml" />
+    <Content Include="Views\Districts\Delete.cshtml" />
+    <Content Include="Views\Districts\Details.cshtml" />
+    <Content Include="Views\Districts\Edit.cshtml" />
+    <Content Include="Views\Districts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -504,6 +529,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712091834422_patientEntityAdded.resx">
       <DependentUpon>201712091834422_patientEntityAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712091916242_FacilityandRelatedEntitiesAdded.resx">
+      <DependentUpon>201712091916242_FacilityandRelatedEntitiesAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
