@@ -10,7 +10,6 @@ namespace WardForms.Models
     public class Patient
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PatientID { get; set; }
 
 

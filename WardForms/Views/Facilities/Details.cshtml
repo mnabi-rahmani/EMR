@@ -1,0 +1,74 @@
+﻿@model WardForms.Models.Facility
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Facility</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFFacilityTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFFacilityTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityNameLocal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityNameLocal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstablishmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstablishmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFDisctictCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFDisctictCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFProvinceCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFProvinceCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WardForms.Models.Facility>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FKFFacilityTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacilityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacilityNameLocal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacilityDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstablishmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKFDisctictCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKFProvinceCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKFFacilityTypeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacilityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacilityNameLocal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacilityDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstablishmentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKFDisctictCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKFProvinceCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FID })
+        </td>
+    </tr>
+}
+
+</table>

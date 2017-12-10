@@ -25,20 +25,23 @@ namespace WardForms.Controllers
             return View(districts.ToList());
         }
 
-        //// GET: Districts/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    District district = db.Districts.Find(id);
-        //    if (district == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(district);
-        //}
+        // GET: Districts/Details/5
+        public ActionResult Details(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //   District district = db.Districts.Find(id);
+        //    District district = DistrictsRepo.Context.Districts.Find(id);
+            District district = DistrictsRepo.Get(id);
+
+            if (district == null)
+            {
+                return HttpNotFound();
+            }
+            return View(district);
+        }
 
         // GET: Districts/Create
         public ActionResult Create()

@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DistrictsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FacilitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
@@ -238,6 +239,14 @@
     <Compile Include="Migrations\201712091916242_FacilityandRelatedEntitiesAdded.Designer.cs">
       <DependentUpon>201712091916242_FacilityandRelatedEntitiesAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712100733596_test1.cs" />
+    <Compile Include="Migrations\201712100733596_test1.Designer.cs">
+      <DependentUpon>201712100733596_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712100738432_patientidentityremoved.cs" />
+    <Compile Include="Migrations\201712100738432_patientidentityremoved.Designer.cs">
+      <DependentUpon>201712100738432_patientidentityremoved.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -265,6 +274,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DistrictsRepository.cs" />
     <Compile Include="Repository\EmployeesRepository.cs" />
+    <Compile Include="Repository\FacilitiesRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\PatientsRepository.cs" />
     <Compile Include="Repository\PersonRepository.cs" />
@@ -494,6 +504,11 @@
     <Content Include="Views\Districts\Details.cshtml" />
     <Content Include="Views\Districts\Edit.cshtml" />
     <Content Include="Views\Districts\Index.cshtml" />
+    <Content Include="Views\Facilities\Create.cshtml" />
+    <Content Include="Views\Facilities\Delete.cshtml" />
+    <Content Include="Views\Facilities\Details.cshtml" />
+    <Content Include="Views\Facilities\Edit.cshtml" />
+    <Content Include="Views\Facilities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -535,6 +550,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712091916242_FacilityandRelatedEntitiesAdded.resx">
       <DependentUpon>201712091916242_FacilityandRelatedEntitiesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712100733596_test1.resx">
+      <DependentUpon>201712100733596_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712100738432_patientidentityremoved.resx">
+      <DependentUpon>201712100738432_patientidentityremoved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
