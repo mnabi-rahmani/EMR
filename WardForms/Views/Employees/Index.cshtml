@@ -9,91 +9,98 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmployeeType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FatherName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaritalStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BloodGroup)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TazkiraNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PassportNumber)
-        </th>
-        <th></th>
-    </tr>
+<table class="table" id="example">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaritalStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TazkiraNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MiddleName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FatherName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaritalStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BloodGroup)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TazkiraNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PassportNumber)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PersonID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PersonID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PersonID })
-        </td>
-    </tr>
-}
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MiddleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaritalStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TazkiraNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassportNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PersonID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PersonID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PersonID })
+                </td>
+            </tr>
+
+        }
+    </tbody>
 
 </table>
+
