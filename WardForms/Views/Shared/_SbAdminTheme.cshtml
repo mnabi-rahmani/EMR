@@ -42,6 +42,7 @@
     @*<script src="../dist/js/sb-admin-2.js"></script>*@
     <script src="~/Content/SbAdminTheme/js/sb-admin-2.min.js"></script>
     <script src="~/Content/Jquery.Datatable/jquery.dataTables.min.js"></script>
+    @RenderSection("scripts", required: false)
 </head>
 <body>
     <div id="wrapper">
@@ -58,12 +59,12 @@
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-                   <li class="dropdown" > 
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> 
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         @System.Web.HttpContext.Current.User.Identity.Name
-                   
+
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a> 
+                    </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -84,46 +85,94 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-          
+
                         <li>
                             <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                 
-                    <li>@Html.ActionLink("Employees", "index", "Employees") </li>
-                        <li>@Html.ActionLink("Patients", "index", "Patients") </li>
-                        <li>@Html.ActionLink("Districts", "index", "Districts") </li>
 
-                      </ul>
+                        <li>@Html.ActionLink("Employees", "index", "Employees") </li>
+                        <li>@Html.ActionLink("Patients", "index", "Patients") </li>
+                        <li>@Html.ActionLink("Provinces", "index", "Provinces") </li>
+                        <li>@Html.ActionLink("Districts", "index", "Districts") </li>
+                        <li>@Html.ActionLink("Facility Types", "index", "FacilityTypes") </li>
+                        <li>@Html.ActionLink("Facilities", "index", "Facilities") </li>
+                        <li>@Html.ActionLink("Facility Locations", "index", "FacilityLocationGeoPionts") </li>
+                        <li>@Html.ActionLink("Contact Mechanisim", "index", "FacilityContactMechanisims") </li>
+                        <li>@Html.ActionLink("Contact Mechanisim Purpose", "index", "FacilityContactMechanisimPurposes") </li>
+                        <li>@Html.ActionLink("Facility Contents", "index", "FacilityContents") </li>
+                        <li>@Html.ActionLink("Facility Group Member", "index", "FacilityGroupMembers") </li>
+                        <li>@Html.ActionLink("Facility Group Roles", "index", "FacilityGroupRoles") </li>
+                        <li>@Html.ActionLink("Facility Groups", "index", "FacilityGroups") </li>
+                        <li>@Html.ActionLink("Facility Group Types", "index", "FacilityGroupTypes") </li>
+                        <li>@Html.ActionLink("Facility Roles", "index", "FacilityRoles") </li>
+                        <li>@Html.ActionLink("Facility Parties", "index", "FacilityParties") </li>
+
+
+
+                    </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-        </nav>
+
+
+            
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </nav>
     <!-- Page Content -->
 
 
-      
+
     <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
                     @*    <h1 class="page-header">Blank</h1>*@
-                        @RenderBody()
-                    </div>
-                    <!-- /.col-lg-12 -->
+                    @RenderBody()
                 </div>
-                <!-- /.row -->
+                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.row -->
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+
+
     <script type="text/javascript">
-      $(document).ready(function () {
-          $('#example').DataTable();
-      });
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-submenu a.test').on("click", function (e) {
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

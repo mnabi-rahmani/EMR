@@ -1,0 +1,58 @@
+﻿@model WardForms.Models.FacilityGroupMember
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FacilityGroupMember</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFGMFacilityGroupID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFGMFacilityGroupID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityGroupMemberDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityGroupMemberDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThruDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThruDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFGMFacilityID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFGMFacilityID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FGMID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -94,10 +94,11 @@ namespace WardForms.Controllers
         {
             if (ModelState.IsValid)
             {
-                DistrictsRepo.Context.Entry(district).State = EntityState.Modified;
-                DistrictsRepo.save();
+                DistrictsRepo.UpdateDistrict(district);
+
                 return RedirectToAction("Index");
             }
+
             ViewBag.ProvinceCode = new SelectList(DistrictsRepo.Context.Provinces, "ProvinceCode", "Province1", district.ProvinceCode);
             return View(district);
         }

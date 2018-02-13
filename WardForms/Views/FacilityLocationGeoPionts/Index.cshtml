@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WardForms.Models.FacilityLocationGeoPiont>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThruDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKFLGPFacilityID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacilityGeoPiontDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThruDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKFLGPFacilityID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FacilityGeoPiontDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FLGeoPID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FLGeoPID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FLGeoPID })
+        </td>
+    </tr>
+}
+
+</table>

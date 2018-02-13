@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WardForms.Models.FacilityParty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FKFPFacilityID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKFPPartyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FKFPRoleTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThruDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKFPFacilityID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKFPPartyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FKFPRoleTypeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThruDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FPID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FPID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FPID })
+        </td>
+    </tr>
+}
+
+</table>

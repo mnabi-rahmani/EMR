@@ -1,0 +1,58 @@
+﻿@model WardForms.Models.FacilityParty
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FacilityParty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFPFacilityID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFPFacilityID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFPPartyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFPPartyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFPRoleTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFPRoleTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThruDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThruDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FPID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

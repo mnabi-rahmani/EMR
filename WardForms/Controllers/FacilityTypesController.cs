@@ -11,127 +11,135 @@ using WardForms.Repository;
 
 namespace WardForms.Controllers
 {
-    public class FacilitiesController : Controller
+    public class FacilityTypesController : Controller
     {
-        // private ApplicationDbContext db = new ApplicationDbContext();
-        FacilitiesRepository FacilitiesRepo = new FacilitiesRepository();
+        //private ApplicationDbContext db = new ApplicationDbContext();
+        FacilityTypesRepository FacilityTypesRepo = new FacilityTypesRepository();
 
-        // GET: Facilities
+        // GET: FacilityTypes
         public ActionResult Index()
         {
-            //  return View(db.Facilities.ToList());
-            var facilities = FacilitiesRepo.GetAllFacilities();
+            // return View(db.FacilityTypes.ToList());
+            var facilityTypes = FacilityTypesRepo.GetAllTypes();
 
-            return View(facilities.ToList());
+            return View(facilityTypes.ToList());
         }
 
-        // GET: Facilities/Details/5
+        // GET: FacilityTypes/Details/5
         public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Facility facility = db.Facilities.Find(id);
-            Facility facility = FacilitiesRepo.Get(id);
-            if (facility == null)
+            //FacilityType facilityType = db.FacilityTypes.Find(id);
+            //if (facilityType == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(facilityType);
+            FacilityType facilityType = FacilityTypesRepo.Get(id);
+
+            if (facilityType == null)
             {
                 return HttpNotFound();
             }
-            return View(facility);
+            return View(facilityType);
         }
 
-        // GET: Facilities/Create
+        // GET: FacilityTypes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Facilities/Create
+        // POST: FacilityTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FID,FKFFacilityTypeID,FacilityName,FacilityNameLocal,FacilityDescription,EstablishmentDate,FKFDisctictCode,FKFProvinceCode")] Facility facility)
+        public ActionResult Create([Bind(Include = "FacilityTypeID,FacilityType1,FacilityTypeLocal,FacilityTypeDescription,StartDate,ThruDate")] FacilityType facilityType)
         {
             if (ModelState.IsValid)
             {
-                // db.Facilities.Add(facility);
-                //db.SaveChanges();
-                FacilitiesRepo.Add(facility);
-                FacilitiesRepo.save();
+                FacilityTypesRepo.Add(facilityType);
+                //db.FacilityTypes.Add(facilityType);
+                FacilityTypesRepo.save();
+             //   db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(facility);
+            return View(facilityType);
         }
 
-        // GET: Facilities/Edit/5
+        // GET: FacilityTypes/Edit/5
         public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            // Facility facility = db.Facilities.Find(id);
-            Facility facility = FacilitiesRepo.Get(id);
-            if (facility == null)
+            //FacilityType facilityType = db.FacilityTypes.Find(id);
+            FacilityType facilityType = FacilityTypesRepo.Get(id);
+            if (facilityType == null)
             {
                 return HttpNotFound();
             }
-            return View(facility);
+            return View(facilityType);
         }
 
-        // POST: Facilities/Edit/5
+        // POST: FacilityTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FID,FKFFacilityTypeID,FacilityName,FacilityNameLocal,FacilityDescription,EstablishmentDate,FKFDisctictCode,FKFProvinceCode")] Facility facility)
+        public ActionResult Edit([Bind(Include = "FacilityTypeID,FacilityType1,FacilityTypeLocal,FacilityTypeDescription,StartDate,ThruDate")] FacilityType facilityType)
         {
             //if (ModelState.IsValid)
             //{
-            //    db.Entry(facility).State = EntityState.Modified;
+            //    db.Entry(facilityType).State = EntityState.Modified;
             //    db.SaveChanges();
             //    return RedirectToAction("Index");
             //}
             if (ModelState.IsValid)
             {
-                FacilitiesRepo.UpdateFacility(facility);
+                FacilityTypesRepo.UpdateFacility(facilityType);
 
                 return RedirectToAction("Index");
             }
-            return View(facility);
+            return View(facilityType);
         }
 
-        // GET: Facilities/Delete/5
+        // GET: FacilityTypes/Delete/5
         public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            //Facility facility = db.Facilities.Find(id);
-            Facility facility = FacilitiesRepo.Get(id);
 
-            if (facility == null)
+            //FacilityType facilityType = db.FacilityTypes.Find(id);
+            FacilityType facilityType = FacilityTypesRepo.Get(id);
+            if (facilityType == null)
             {
                 return HttpNotFound();
             }
-            return View(facility);
+            return View(facilityType);
         }
 
-        // POST: Facilities/Delete/5
+        // POST: FacilityTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            //Facility facility = db.Facilities.Find(id);
-            //db.Facilities.Remove(facility);
+
+            //FacilityType facilityType = db.FacilityTypes.Find(id);
+            //db.FacilityTypes.Remove(facilityType);
             //db.SaveChanges();
-            Facility facility = FacilitiesRepo.Get(id);
-            FacilitiesRepo.Remove(facility);
-            FacilitiesRepo.save();
+
+            FacilityType facilityType = FacilityTypesRepo.Get(id);
+            FacilityTypesRepo.Remove(facilityType);
+            FacilityTypesRepo.save();
             return RedirectToAction("Index");
         }
 

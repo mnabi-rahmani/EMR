@@ -1,0 +1,64 @@
+﻿@model WardForms.Models.FacilityGroupMember
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FacilityGroupMember</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFGMFacilityGroupID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFGMFacilityGroupID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityGroupMemberDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityGroupMemberDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThruDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThruDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFGMFacilityID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFGMFacilityID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

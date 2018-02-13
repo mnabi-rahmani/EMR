@@ -1,0 +1,50 @@
+﻿@model WardForms.Models.FacilityGroupType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FacilityGroupType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityGroupType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityGroupType1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityGroupTypeLocal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityGroupTypeLocal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacilityGroupTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacilityGroupTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FKFGTFacilityID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FKFGTFacilityID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FGTID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

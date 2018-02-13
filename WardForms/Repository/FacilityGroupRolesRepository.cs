@@ -8,25 +8,20 @@ using WardForms.Repository;
 
 namespace WardForms.Repository
 {
-    public class DistrictsRepository : Repository<District>
+    public class FacilityGroupRolesRepository : Repository<FacilityGroupRole>
     {
      public   ApplicationDbContext Context = new ApplicationDbContext();
 
-        public DistrictsRepository()
+        public FacilityGroupRolesRepository()
         {
 
         }
 
-        public List<District> GetAllDistricts()
+       
+
+        public void UpdateGroupRole(FacilityGroupRole _facilityGroupRole)
         {
-
-           return  Context.Districts.Include("Province").ToList();
-
-
-        }
-        public void UpdateDistrict(District _district)
-        {
-            Context.Entry(_district).State = EntityState.Modified;
+            Context.Entry(_facilityGroupRole).State = EntityState.Modified;
             Context.SaveChanges();
 
         }
